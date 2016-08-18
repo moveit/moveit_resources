@@ -21,3 +21,6 @@ install(
   FILES "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h"
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
   RENAME "config.h")
+
+# fanuc moveit config
+install(DIRECTORY fanuc_moveit_config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
