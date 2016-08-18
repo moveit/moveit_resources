@@ -62,16 +62,16 @@
     <color rgba="0.6 0.6 0.6 1.0"/>
   </material>
   <material name="Caster">
-    <texture filename="package://moveit_resources/test/urdf/materials/textures/pr2_caster_texture.png"/>
+    <texture filename="package://moveit_resources/pr2_description/urdf/materials/textures/pr2_caster_texture.png"/>
   </material>
   <material name="Wheel_l">
-    <texture filename="package://moveit_resources/test/urdf/materials/textures/pr2_wheel_left.png"/>
+    <texture filename="package://moveit_resources/pr2_description/urdf/materials/textures/pr2_wheel_left.png"/>
   </material>
   <material name="Wheel_r">
-    <texture filename="package://moveit_resources/test/urdf/materials/textures/pr2_wheel_right.png"/>
+    <texture filename="package://moveit_resources/pr2_description/urdf/materials/textures/pr2_wheel_right.png"/>
   </material>
   <material name="RollLinks">
-    <texture filename="package://moveit_resources/test/urdf/materials/textures/pr2_wheel_left.png"/>
+    <texture filename="package://moveit_resources/pr2_description/urdf/materials/textures/pr2_wheel_left.png"/>
   </material>
   <!-- Now we can start using the macros included above to define the actual PR2 -->
   <!-- The first use of a macro.  This one was defined in base.urdf.xacro above.
@@ -90,14 +90,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/base.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/base.dae"/>
       </geometry>
       <material name="White"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/base_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/base_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -209,14 +209,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster.stl"/>
       </geometry>
       <material name="Caster"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -244,7 +244,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_l"/>
     </visual>
@@ -286,7 +286,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_r"/>
     </visual>
@@ -332,14 +332,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster.stl"/>
       </geometry>
       <material name="Caster"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -367,7 +367,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_l"/>
     </visual>
@@ -409,7 +409,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_r"/>
     </visual>
@@ -455,14 +455,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster.stl"/>
       </geometry>
       <material name="Caster"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -490,7 +490,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_l"/>
     </visual>
@@ -532,7 +532,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_r"/>
     </visual>
@@ -578,14 +578,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster.stl"/>
       </geometry>
       <material name="Caster"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/caster_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/caster_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -613,7 +613,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_l"/>
     </visual>
@@ -655,7 +655,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/base_v0/wheel.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/base_v0/wheel.dae"/>
       </geometry>
       <material name="Wheel_r"/>
     </visual>
@@ -731,14 +731,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/torso_v0/torso_lift.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/torso_v0/torso_lift.dae"/>
       </geometry>
       <material name="Grey2"/>
     </visual>
     <collision name="torso_lift_collision">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/torso_v0/torso_lift_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/torso_v0/torso_lift_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -874,13 +874,13 @@
     <visual>
       <origin rpy="0 0 0 " xyz="0 0 0.0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/head_v0/head_pan.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/head_v0/head_pan.dae"/>
       </geometry>
       <material name="Blue"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/head_v0/head_pan_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/head_v0/head_pan_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -910,14 +910,14 @@
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/head_v0/head_tilt.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/head_v0/head_tilt.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/head_v0/head_tilt_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/head_v0/head_tilt_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1379,7 +1379,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0.0 0.0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/sensors/kinect_prosilica_v0/115x100_swept_back--coarse.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/sensors/kinect_prosilica_v0/115x100_swept_back--coarse.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="gray">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -1599,14 +1599,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/tilting_laser_v0/tilting_hokuyo.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/tilting_laser_v0/tilting_hokuyo.dae"/>
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/tilting_laser_v0/tilting_hokuyo_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/tilting_laser_v0/tilting_hokuyo_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1676,14 +1676,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_pan.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_pan.dae"/>
       </geometry>
       <material name="Blue"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_pan.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_pan.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1708,14 +1708,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_lift.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_lift.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_lift.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_lift.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1741,14 +1741,14 @@
       <!-- TODO: This component doesn't actually have a mesh -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/upper_arm_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/upper_arm_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/upper_arm_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/upper_arm_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1807,14 +1807,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/upper_arm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/upper_arm.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/upper_arm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/upper_arm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1842,7 +1842,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/forearm_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/forearm_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
@@ -1850,7 +1850,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/forearm_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/forearm_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1887,14 +1887,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/elbow_flex.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/elbow_flex.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/elbow_flex.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/elbow_flex.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1928,14 +1928,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/forearm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/forearm.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/forearm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/forearm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1959,14 +1959,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_flex.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_flex.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_flex.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_flex.stl"/>
       </geometry>
     </collision>
   </link>
@@ -1991,14 +1991,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2039,14 +2039,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/gripper_palm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/gripper_palm.dae"/>
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/gripper_palm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/gripper_palm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2160,14 +2160,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2189,14 +2189,14 @@
     <visual>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2218,14 +2218,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2247,14 +2247,14 @@
     <visual>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2531,14 +2531,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_pan.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_pan.dae"/>
       </geometry>
       <material name="Blue"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_pan.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_pan.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2563,14 +2563,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_lift.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_lift.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/shoulder_lift.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/shoulder_lift.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2596,14 +2596,14 @@
       <!-- TODO: This component doesn't actually have a mesh -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/upper_arm_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/upper_arm_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/shoulder_v0/upper_arm_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/shoulder_v0/upper_arm_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2662,14 +2662,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/upper_arm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/upper_arm.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/upper_arm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/upper_arm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2697,7 +2697,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/forearm_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/forearm_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
@@ -2705,7 +2705,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/forearm_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/forearm_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2742,14 +2742,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/elbow_flex.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/elbow_flex.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/upper_arm_v0/elbow_flex.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/upper_arm_v0/elbow_flex.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2783,14 +2783,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/forearm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/forearm.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/forearm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/forearm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2814,14 +2814,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_flex.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_flex.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_flex.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_flex.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2846,14 +2846,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_roll.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_roll.stl"/>
       </geometry>
       <material name="RollLinks"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/forearm_v0/wrist_roll_L.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/forearm_v0/wrist_roll_L.stl"/>
       </geometry>
     </collision>
   </link>
@@ -2894,14 +2894,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/gripper_palm.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/gripper_palm.dae"/>
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/gripper_palm.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/gripper_palm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -3015,14 +3015,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.stl"/>
       </geometry>
     </collision>
   </link>
@@ -3044,14 +3044,14 @@
     <visual>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.dae"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger.stl"/>
       </geometry>
     </collision>
   </link>
@@ -3073,14 +3073,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
       </geometry>
     </collision>
   </link>
@@ -3102,14 +3102,14 @@
     <visual>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.dae"/>
       </geometry>
       <material name="Green"/>
     </visual>
     <collision>
       <origin rpy="3.14159265359 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/test/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
+        <mesh filename="package://moveit_resources/pr2_description/urdf/meshes/gripper_v0/l_finger_tip.stl"/>
       </geometry>
     </collision>
   </link>
