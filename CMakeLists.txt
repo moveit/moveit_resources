@@ -14,7 +14,9 @@ configure_file("include/${PROJECT_NAME}/config.h.in" "${CATKIN_DEVEL_PREFIX}/inc
 set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION})
 configure_file("include/${PROJECT_NAME}/config.h.in" "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h")
 
-install(DIRECTORY pr2_description DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(
+  DIRECTORY pr2_description fanuc_description
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(
   FILES "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h"
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
