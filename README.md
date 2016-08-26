@@ -1,8 +1,11 @@
 MoveIt Resources
 ================
 
-This repository includes various resources needed for MoveIt! testing
+This repository includes various resources (URDFs, meshes, moveit_config packages) needed for MoveIt! testing.
 
-## Build Status
+[![Build Status](https://travis-ci.org/ros-planning/moveit_resources.png?branch=master)](https://travis-ci.org/ros-planning/moveit_resources)
 
-master branch: [![Build Status](https://travis-ci.org/ros-planning/moveit_resources.png?branch=master)](https://travis-ci.org/ros-planning/moveit_resources)
+## Included Robots
+
+- PR2
+- Fanuc
