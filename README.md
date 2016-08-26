@@ -8,4 +8,4 @@ This repository includes various resources (URDFs, meshes, moveit_config package
 ## Included Robots
 
 - PR2
-- Fanuc
+- Fanuc M-10iA
