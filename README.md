@@ -1,7 +1,7 @@
 MoveIt Resources
 ================
 
-This repository includes various resources needed for MoveIt!
+This repository includes various resources needed for MoveIt! testing
 
 ## Build Status
 

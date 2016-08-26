@@ -1,11 +1,12 @@
 <package>
   <name>moveit_resources</name>
   <version>0.6.0</version>
-  <description>Resources used by MoveIt!</description>
+  <description>Resources used for MoveIt! testing</description>
+
   <author email="isucan@willowgarage.edu">Ioan Sucan</author>
   <author email="acorn@willowgarage.edu">Acorn Pooley</author>
 
-  <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
+  <maintainer email="dave@dav.ee">Dave Coleman</maintainer>
 
   <license>BSD</license>  
   <url type="website">http://moveit.ros.org</url>
@@ -13,5 +14,4 @@
   <url type="repository">https://github.com/ros-planning/moveit-resources</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-
 </package>
