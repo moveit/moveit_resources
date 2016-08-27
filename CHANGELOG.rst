@@ -2,6 +2,11 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* [sys] Added Fanuc robot model (m10ia) for system testing. Improve README (`#7 <https://github.com/ros-planning/moveit_resources/issues/7>`_, `#8 <https://github.com/ros-planning/moveit_resources/issues/8>`_)
+* Contributors: Dave Coleman, Robert Haschke
+
 0.6.0 (2016-01-30)
 ------------------
 * Don't make include dir into build
