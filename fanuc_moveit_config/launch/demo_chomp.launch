@@ -31,13 +31,13 @@
       <arg name="fake_execution" value="true"/>
       <arg name="info" value="true"/>
       <arg name="debug" value="$(arg debug)"/>
+      <arg name="planner" value="chomp" />
    </include>
 
    <!-- Run Rviz and load the default config to see the state of the move_group node -->
    <include file="$(find moveit_resources)/fanuc_moveit_config/launch/moveit_rviz.launch">
       <arg name="config" value="true"/>
       <arg name="debug" value="$(arg debug)"/>
-      <arg name="planner" value="chomp" />
    </include>
 
    <!-- If database loading was enabled, start mongodb as well -->
