@@ -1,6 +1,6 @@
 <launch>
 
-   <!-- OMPL Plugin for MoveIt! -->
+   <!-- CHOMP Plugin for MoveIt! -->
    <arg name="planning_plugin" value="chomp_interface/CHOMPPlanner" />
 
    <arg name="start_state_max_bounds_error" value="0.1" />
