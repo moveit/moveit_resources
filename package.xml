@@ -8,10 +8,14 @@
 
   <maintainer email="dave@dav.ee">Dave Coleman</maintainer>
 
-  <license>BSD</license>  
+  <license>BSD</license>
   <url type="website">http://moveit.ros.org</url>
   <url type="bugtracker">https://github.com/ros-planning/moveit-resources/issues</url>
   <url type="repository">https://github.com/ros-planning/moveit-resources</url>
 
   <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+
 </package>
