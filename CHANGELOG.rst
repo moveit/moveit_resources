@@ -2,6 +2,14 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* [fix] Missing license to fanuc pkgs imported from ros-industrial/fanuc. `#11 <https://github.com/ros-planning/moveit_resources/issues/11>`_. (`#12 <https://github.com/ros-planning/moveit_resources/issues/12>`_)
+* [fix] Missing run depends for [robot|joint]_state_publisher (`#14 <https://github.com/ros-planning/moveit_resources/issues/14>`_)
+* [fix] Correct warehouse ros mongo (`#13 <https://github.com/ros-planning/moveit_resources/issues/13>`_)
+* [improve] test chomp (`#10 <https://github.com/ros-planning/moveit_resources/issues/10>`_)
+* Contributors: Chittaranjan Srinivas Swaminathan, Dave Coleman, G.A. vd. Hoorn, kirstyellis
+
 0.6.1 (2016-08-27)
 ------------------
 * [sys] Added Fanuc robot model (m10ia) for system testing. Improve README (`#7 <https://github.com/ros-planning/moveit_resources/issues/7>`_, `#8 <https://github.com/ros-planning/moveit_resources/issues/8>`_)
