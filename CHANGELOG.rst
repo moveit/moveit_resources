@@ -2,8 +2,8 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.2 (2017-04-07)
+------------------
 * [fix] Missing license to fanuc pkgs imported from ros-industrial/fanuc. `#11 <https://github.com/ros-planning/moveit_resources/issues/11>`_. (`#12 <https://github.com/ros-planning/moveit_resources/issues/12>`_)
 * [fix] Missing run depends for [robot|joint]_state_publisher (`#14 <https://github.com/ros-planning/moveit_resources/issues/14>`_)
 * [fix] Correct warehouse ros mongo (`#13 <https://github.com/ros-planning/moveit_resources/issues/13>`_)
