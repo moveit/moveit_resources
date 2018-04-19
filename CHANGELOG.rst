@@ -2,6 +2,12 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* [enhance] Update param scope (`#17 <https://github.com/ros-planning/moveit_resources/issues/17>`_)
+* [enhance] Use the "Hybrid" collision checker and created a sample config file for parameters (`#16 <https://github.com/ros-planning/moveit_resources/issues/16>`_)
+* Contributors: Simon Schmeisser, Will Baker
+
 0.6.2 (2017-04-07)
 ------------------
 * [fix] Missing license to fanuc pkgs imported from ros-industrial/fanuc. `#11 <https://github.com/ros-planning/moveit_resources/issues/11>`_. (`#12 <https://github.com/ros-planning/moveit_resources/issues/12>`_)
