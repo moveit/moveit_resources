@@ -2,8 +2,8 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.3 (2018-04-18)
+------------------
 * [enhance] Update param scope (`#17 <https://github.com/ros-planning/moveit_resources/issues/17>`_)
 * [enhance] Use the "Hybrid" collision checker and created a sample config file for parameters (`#16 <https://github.com/ros-planning/moveit_resources/issues/16>`_)
 * Contributors: Simon Schmeisser, Will Baker
