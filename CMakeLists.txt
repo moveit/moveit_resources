@@ -15,7 +15,7 @@ set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_SHARE_DES
 configure_file("include/${PROJECT_NAME}/config.h.in" "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h")
 
 install(
-  DIRECTORY pr2_description fanuc_description
+  DIRECTORY pr2_description fanuc_description panda_description
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(
   FILES "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h"
@@ -23,4 +23,4 @@ install(
   RENAME "config.h")
 
 # fanuc moveit config
-install(DIRECTORY fanuc_moveit_config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY fanuc_moveit_config panda_moveit_config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
