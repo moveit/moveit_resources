@@ -2,6 +2,11 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.4 (2018-09-06)
+------------------
+* Added Franka Emika's Panda robot (`#19 <https://github.com/ros-planning/moveit_resources/issues/19>`_)
+* Contributors: Mohmmad Ayman
+
 0.6.3 (2018-04-18)
 ------------------
 * [enhance] Update param scope (`#17 <https://github.com/ros-planning/moveit_resources/issues/17>`_)

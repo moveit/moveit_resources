@@ -9,3 +9,4 @@ This repository includes various resources (URDFs, meshes, moveit_config package
 
 - PR2
 - Fanuc M-10iA
+- Franka Emika Panda
