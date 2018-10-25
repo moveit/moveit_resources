@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>kinematics_tests_support</name>
+  <version>0.0.0</version>
+  <description>The kinematics_tests_support package</description>
+  <maintainer email="jrgnichodevel@gmail.com">Jorge Nicho</maintainer>
+  <author email="jrgnichodevel@gmail.com">Jorge Nicho</author>
+  <license>BSD</license>
+
+  <url type="website">http://moveit.ros.org</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit_kinematics_tests/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit_kinematics_tests</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

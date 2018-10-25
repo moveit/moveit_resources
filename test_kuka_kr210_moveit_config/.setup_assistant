@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: kinematics_tests_support
+    relative_path: urdf/kr210l150.urdf
+  SRDF:
+    relative_path: config/test_kuka_kr210.srdf
+  CONFIG:
+    generated_timestamp: 1435345166

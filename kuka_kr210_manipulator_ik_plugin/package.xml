@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package>
+  <name>kuka_kr210_manipulator_ik_plugin</name>
+  <version>0.0.0</version>
+  <description>The kuka_kr210_manipulator_ik_plugin package</description>
+  <maintainer email="jrgnichodevel@gmail.com">Jorge Nicho</maintainer>
+  <author email="jrgnichodevel@gmail.com">Jorge Nicho</author>
+  <license>BSD</license>
+  <url type="website">http://moveit.ros.org</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit_kinematics_tests/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit_kinematics_tests</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <moveit_core plugin="${prefix}/test_kuka_kr210_manipulator_moveit_ikfast_plugin_description.xml"/>
+  </export>
+
+  <build_depend>moveit_core</build_depend>
+  <build_depend>liblapack-dev</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <run_depend>moveit_core</run_depend>
+  <run_depend>liblapack-dev</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf_conversions</run_depend>
+  <run_depend>pluginlib</run_depend>
+</package>

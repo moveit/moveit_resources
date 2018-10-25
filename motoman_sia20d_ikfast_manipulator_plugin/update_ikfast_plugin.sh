@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py test_motoman_sia20d manipulator motoman_sia20d_ikfast_manipulator_plugin src/test_motoman_sia20d_manipulator_ikfast_solver.cpp
