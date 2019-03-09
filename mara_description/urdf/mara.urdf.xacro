@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
 <!--
   Author: Alejandro  Hernandez
 -->
-
-  <xacro:include filename="$(find mara_description)/urdf/mara.transmission.xacro" />
-  <xacro:include filename="$(find mara_description)/urdf/mara_gazebo.urdf.xacro" />
-
   <xacro:macro name="mara_robot"  params="prefix ee_link_distance">
 
     <link name="${prefix}base_link">
@@ -404,9 +399,5 @@
       <parent link="${prefix}${prefix}motor6_link"/>
       <child link="${prefix}tool0"/>
     </joint>
-
-    <xacro:mara_transmission prefix="${prefix}"/>
-    <xacro:mara_gazebo prefix="${prefix}"/>
-
   </xacro:macro>
 </robot>
