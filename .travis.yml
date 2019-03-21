@@ -12,11 +12,9 @@ notifications:
       - 130s@2000.jukuin.keio.ac.jp
 env:
   matrix:
-    - ROS_DISTRO="kinetic"  ROS_REPO=ros
-    - ROS_DISTRO="jade"     ROS_REPO=ros
-    - ROS_DISTRO="indigo"   ROS_REPO=ros
+    - ROS_DISTRO="crystal"  ROS_REPO=ros
 
 before_script:
-  - git clone -q https://github.com/ros-planning/moveit_ci.git .moveit_ci
+  - git clone -b ros2 -q https://github.com/ros-planning/moveit_ci.git .moveit_ci
 script:
   - source .moveit_ci/travis.sh
