@@ -5,13 +5,10 @@ find_package(ament_cmake REQUIRED)
 file(MAKE_DIRECTORY "include")
 ament_export_include_directories(include "include/")
 
-# devel space file
-set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-configure_file("include/${PROJECT_NAME}/config.h.in" "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/config.h")
-
 # install space file
 set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME})
 configure_file("include/${PROJECT_NAME}/config.h.in" "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/.config_install.h")
+configure_file("include/${PROJECT_NAME}/config.h.in" "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/config.h")
 
 install(
   DIRECTORY pr2_description fanuc_description panda_description
