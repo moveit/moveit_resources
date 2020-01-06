@@ -1,26 +1,24 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.10.2)
 project(moveit_resources)
+find_package(ament_cmake REQUIRED)
 
-find_package(catkin REQUIRED)
-
-file(MAKE_DIRECTORY "${CATKIN_DEVEL_PREFIX}/include")
-catkin_package(INCLUDE_DIRS include "${CATKIN_DEVEL_PREFIX}/include")
-
-# devel space file
-set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-configure_file("include/${PROJECT_NAME}/config.h.in" "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/config.h")
+file(MAKE_DIRECTORY "include")
+ament_export_include_directories(include "include/")
 
 # install space file
-set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION})
-configure_file("include/${PROJECT_NAME}/config.h.in" "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h")
+set(MOVEIT_TEST_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME})
+configure_file("include/${PROJECT_NAME}/config.h.in" "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/.config_install.h")
+configure_file("include/${PROJECT_NAME}/config.h.in" "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/config.h")
 
 install(
   DIRECTORY pr2_description fanuc_description panda_description
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+  DESTINATION "share/${PROJECT_NAME}")
+
 install(
-  FILES "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/.config_install.h"
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES "${CMAKE_BINARY_DIR}/include/${PROJECT_NAME}/.config_install.h"
+  DESTINATION include/${PROJECT_NAME}
   RENAME "config.h")
 
 # fanuc moveit config
-install(DIRECTORY fanuc_moveit_config panda_moveit_config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY fanuc_moveit_config panda_moveit_config DESTINATION "share/${PROJECT_NAME}")
+ament_package()
