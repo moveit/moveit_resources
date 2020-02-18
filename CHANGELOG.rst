@@ -2,6 +2,13 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.5 (2020-02-18)
+------------------
+* [maintenance] unify with official panda_moveit_config: define `ready` and `extended` poses
+* [maintenance] fanuc_moveit_config: cleanup definition of move_group capabilities (`#23 <https://github.com/ros-planning/moveit_resources/issues/23>`_)
+* [fix]         fixed normals of link4 STLs
+* Contributors: Robert Haschke
+
 0.6.4 (2018-09-06)
 ------------------
 * Added Franka Emika's Panda robot (`#19 <https://github.com/ros-planning/moveit_resources/issues/19>`_)
@@ -49,7 +56,6 @@ Changelog for package moveit_resources
 
 0.4.0 (2013-05-24)
 ------------------
-  fix config.h so it is not created in the source dir
 * fix config.h so it is not created in the source dir
 
 0.3.1 (2013-05-20)
@@ -58,7 +64,7 @@ Changelog for package moveit_resources
 
 0.3.0 (2013-03-09)
 ------------------
-  fix srdf robot name
+* fix srdf robot name
 * change robot name to "pr2" to match urdf
 
 0.2.0 (2013-01-15)
