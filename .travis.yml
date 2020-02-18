@@ -12,8 +12,8 @@ notifications:
       - 130s@2000.jukuin.keio.ac.jp
 env:
   matrix:
+    - ROS_DISTRO="melodic"  ROS_REPO=ros
     - ROS_DISTRO="kinetic"  ROS_REPO=ros
-    - ROS_DISTRO="jade"     ROS_REPO=ros
     - ROS_DISTRO="indigo"   ROS_REPO=ros
 
 before_script:
