@@ -22,8 +22,18 @@
   <arg name="jiggle_fraction" default="0.05" />
   <arg name="publish_monitored_planning_scene" default="true"/>
 
-  <!-- Planning Functionality -->
-  <include ns="move_group" file="$(find moveit_resources)/panda_moveit_config/launch/planning_pipeline.launch.xml">
+  <!-- Planning Pipelines -->
+  <include ns="move_group/ompl" file="$(find moveit_resources)/panda_moveit_config/launch/planning_pipeline.launch.xml">
+    <arg name="pipeline" value="ompl" />
+  </include>
+
+  <include ns="move_group/chomp" file="$(find moveit_resources)/panda_moveit_config/launch/planning_pipeline.launch.xml">
+    <arg name="pipeline" value="chomp" />
+  </include>
+
+  <!-- Load non-default planner if passed as parameter -->
+  <include if="$(eval arg('planner') not in ['ompl', 'chomp'])"
+	   file="$(find moveit_resources)/panda_moveit_config/launch/planning_pipeline.launch.xml">
     <arg name="pipeline" value="$(arg planner)" />
   </include>
 
@@ -47,6 +57,9 @@
     <param name="allow_trajectory_execution" value="$(arg allow_trajectory_execution)"/>
     <param name="max_safe_path_cost" value="$(arg max_safe_path_cost)"/>
     <param name="jiggle_fraction" value="$(arg jiggle_fraction)" />
+
+    <rosparam param="planning_pipelines/pipeline_names">[ompl,chomp]</rosparam>
+    <param name="default_planning_pipeline" value="$(arg planner)" />
 
     <!-- load these non-default MoveGroup capabilities -->
     <!--
