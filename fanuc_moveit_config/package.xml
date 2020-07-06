@@ -1,24 +1,38 @@
 <package>
-  <name>moveit_resources</name>
+
+  <name>moveit_resources_fanuc_moveit_config</name>
   <version>0.6.5</version>
-  <description>Resources used for MoveIt! testing</description>
-
-  <author email="isucan@willowgarage.edu">Ioan Sucan</author>
-  <author email="acorn@willowgarage.edu">Acorn Pooley</author>
-
+  <description>
+    <p>
+      MoveIt Resources for testing: Fanuc M-10iA.
+    </p>
+    <p>
+		A project-internal configuration for testing in MoveIt.
+    </p>
+  </description>
+  <author email="dave@dav.ee">Dave Coleman</author>
   <maintainer email="dave@dav.ee">Dave Coleman</maintainer>
 
   <license>BSD</license>
+
   <url type="website">http://moveit.ros.org</url>
-  <url type="bugtracker">https://github.com/ros-planning/moveit-resources/issues</url>
-  <url type="repository">https://github.com/ros-planning/moveit-resources</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit_resources/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit_resources</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>moveit_ros_move_group</run_depend>
+  <run_depend>moveit_fake_controller_manager</run_depend>
+  <run_depend>moveit_kinematics</run_depend>
+  <run_depend>moveit_planners_ompl</run_depend>
+  <run_depend>moveit_ros_visualization</run_depend>
+  <run_depend>moveit_setup_assistant</run_depend>
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>robot_state_publisher</run_depend>
+  <run_depend>tf2_ros</run_depend>
+  <run_depend>xacro</run_depend>
+  <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment. Commented the dependency until this works. -->
+  <!-- <run_depend>warehouse_ros_mongo</run_depend> -->
+  <run_depend>moveit_resources_fanuc_description</run_depend>
 
-  <export>
-    <metapackage/>
-  </export>
 </package>
