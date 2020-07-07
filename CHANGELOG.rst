@@ -2,6 +2,16 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.0 (2020-07-10)
+------------------
+* Update joint_state_publisher dependency (`#31 <https://github.com/ros-planning/moveit_resources/issues/31>`_)
+* Port to ROS 2 Eloquent (`#26 <https://github.com/ros-planning/moveit_resources/issues/26>`_)
+* Run Travis CI on ROS 2 Eloquent
+* Create moveit_resources.repos
+* Port CMakeLists.txt & package.xml to ROS2
+* Travis: use ROS2 branch of moveit_ci (`#25 <https://github.com/ros-planning/moveit_resources/issues/25>`_)
+* Contributors: Henning Kayser, Jafar Abdi, JafarAbdi, Mike Lautman, Nathan Brooks
+
 0.6.4 (2018-09-06)
 ------------------
 * Added Franka Emika's Panda robot (`#19 <https://github.com/ros-planning/moveit_resources/issues/19>`_)
