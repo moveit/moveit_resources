@@ -21,12 +21,16 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <!-- Disabled to avoid circular dependencies with MoveIt packages
+       depending on moveit_resources for testing -->
+  <!--
   <run_depend>moveit_ros_move_group</run_depend>
   <run_depend>moveit_fake_controller_manager</run_depend>
   <run_depend>moveit_kinematics</run_depend>
   <run_depend>moveit_planners_ompl</run_depend>
   <run_depend>moveit_ros_visualization</run_depend>
   <run_depend>moveit_setup_assistant</run_depend>
+  -->
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>tf2_ros</run_depend>
