@@ -35,6 +35,19 @@
         <joint name="panda_joint6" value="3.1416" />
         <joint name="panda_joint7" value="1.5708" />
     </group_state>
+    <group_state name="open" group="hand">
+        <joint name="panda_finger_joint1" value="0.035" />
+        <joint name="panda_finger_joint2" value="0.035" />
+    </group_state>
+    <group_state name="ready" group="panda_arm">
+        <joint name="panda_joint1" value="0" />
+        <joint name="panda_joint2" value="-0.785" />
+        <joint name="panda_joint3" value="0" />
+        <joint name="panda_joint4" value="-2.356" />
+        <joint name="panda_joint5" value="0" />
+        <joint name="panda_joint6" value="1.571" />
+        <joint name="panda_joint7" value="0.785" />
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="eef" parent_link="panda_link8" group="hand" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
