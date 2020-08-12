@@ -3,5 +3,5 @@
   <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
   <!-- load controller_list -->
-  <rosparam file="$(find moveit_resources)/panda_moveit_config/config/controllers.yaml"/>
+  <rosparam file="$(find moveit_resources_panda_moveit_config)/config/panda_controllers.yaml"/>
  </launch>
