@@ -2,6 +2,11 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.0 (2020-08-13)
+------------------
+* Split resources into multiple packages (`#36 <https://github.com/ros-planning/moveit_resources/issues/36>`_)
+* Contributors: Robert Haschke, Michael Görner
+
 0.6.5 (2020-02-18)
 ------------------
 * [maintenance] unify with official panda_moveit_config: define `ready` and `extended` poses
