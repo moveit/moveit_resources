@@ -8,7 +8,7 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <param if="$(eval arg('load_robot_description') and arg('load_gripper'))" name="$(arg robot_description)" textfile="$(find moveit_resources_panda_description)/robots/panda.urdf'"/>
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find moveit_resources_panda_description)/urdf/panda.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" command="$(find xacro)/xacro '$(find moveit_resources_panda_moveit_config)/config/panda_arm_hand.srdf.xacro'" if="$(arg load_gripper)" />
