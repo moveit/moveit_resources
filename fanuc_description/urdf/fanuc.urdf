@@ -8,7 +8,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/base_link.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/base_link.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.4 0.4 0.4 1.0"/>
@@ -17,7 +17,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/base_link.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/base_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -25,7 +25,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_1.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_1.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.96 0.76 0.13 1.0"/>
@@ -34,7 +34,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_1.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_1.stl"/>
       </geometry>
     </collision>
   </link>
@@ -42,7 +42,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_2.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_2.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.96 0.76 0.13 1.0"/>
@@ -51,7 +51,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_2.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_2.stl"/>
       </geometry>
     </collision>
   </link>
@@ -59,7 +59,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_3.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_3.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.96 0.76 0.13 1.0"/>
@@ -68,7 +68,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_3.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_3.stl"/>
       </geometry>
     </collision>
   </link>
@@ -76,7 +76,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_4.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_4.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.96 0.76 0.13 1.0"/>
@@ -85,7 +85,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_4.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_4.stl"/>
       </geometry>
     </collision>
   </link>
@@ -93,7 +93,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_5.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_5.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.96 0.76 0.13 1.0"/>
@@ -102,7 +102,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_5.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_5.stl"/>
       </geometry>
     </collision>
   </link>
@@ -110,7 +110,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/visual/link_6.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/visual/link_6.stl"/>
       </geometry>
       <material name="">
         <color rgba="0.15 0.15 0.15 1.0"/>
@@ -119,7 +119,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://moveit_resources/fanuc_description/meshes/collision/link_6.stl"/>
+        <mesh filename="package://moveit_resources_fanuc_description/meshes/collision/link_6.stl"/>
       </geometry>
     </collision>
   </link>
@@ -178,4 +178,3 @@
     <child link="base"/>
   </joint>
 </robot>
-

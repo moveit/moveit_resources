@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>moveit_resources</name>
-  <version>0.6.4</version>
-  <description>Resources used for MoveIt! testing</description>
+  <name>moveit_resources_panda_description</name>
+  <version>0.7.0</version>
+  <description>panda Resources used for MoveIt testing</description>
 
   <author email="isucan@willowgarage.edu">Ioan Sucan</author>
   <author email="acorn@willowgarage.edu">Acorn Pooley</author>
@@ -15,9 +15,6 @@
   <url type="repository">https://github.com/ros-planning/moveit-resources</url>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-
-  <exec_depend>joint_state_publisher</exec_depend>
-  <exec_depend>robot_state_publisher</exec_depend>
 
   <export>
       <build_type>ament_cmake</build_type>

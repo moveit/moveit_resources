@@ -1,5 +1,5 @@
-# fanuc_moveit_config
+## MoveIt Resources for testing: Fanuc M-10iA.
 
-The launch and configuration files contained in this package were copied from the ROS-Industrial `fanuc_m10ia_moveit_config` package and adapted for use with `moveit_resources`.
+A project-internal moveit configuration for testing in MoveIt.
 
-All imported files were released under the BSD 3-Clause license.
+Use ROS-Industrial's upstream files if you actually want to work with the robot!
