@@ -32,7 +32,7 @@
     <joint name="panda_joint3" value="0"/>
     <joint name="panda_joint4" value="0"/>
     <joint name="panda_joint5" value="0"/>
-    <joint name="panda_joint6" value="0"/>
+    <joint name="panda_joint6" value="1.571"/>
     <joint name="panda_joint7" value="0.785"/>
   </group_state>
   <group_state group="panda_arm" name="transport">
