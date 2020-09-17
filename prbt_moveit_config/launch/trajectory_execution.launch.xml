@@ -1,6 +1,7 @@
 <launch>
 
   <arg name="gripper" default="" />
+  <arg name="execution_type" default="interpolate" />
 
   <!-- This file makes it easy to include the settings for trajectory execution  -->  
 
@@ -19,6 +20,7 @@
   <arg name="moveit_controller_manager" default="prbt" />
   <include file="$(find moveit_resources_prbt_moveit_config)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml">
     <arg name="gripper" value="$(arg gripper)" />
+    <arg name="execution_type" value="$(arg execution_type)" />
   </include>
   
 </launch>
