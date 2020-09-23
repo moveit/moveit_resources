@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   URDF:
-    package: prbt_support
+    package: moveit_resources_prbt_support
     relative_path: urdf/prbt.xacro
   SRDF:
     relative_path: config/prbt.srdf.xacro

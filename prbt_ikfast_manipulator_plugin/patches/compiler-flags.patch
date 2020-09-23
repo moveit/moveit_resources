@@ -1,0 +1,25 @@
+Enable more restrictive compiler flags
+Index: prbt_ikfast_manipulator_plugin/CMakeLists.txt
+===================================================================
+--- prbt_ikfast_manipulator_plugin.orig/CMakeLists.txt
++++ prbt_ikfast_manipulator_plugin/CMakeLists.txt
+@@ -4,6 +4,19 @@ project(prbt_ikfast_manipulator_plugin)
+ set(CMAKE_CXX_STANDARD 14)
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ 
++add_compile_options(-Wall)
++add_compile_options(-Wextra)
++add_compile_options(-Wno-unused-parameter)
++add_compile_options(-Wno-unused-variable)
++add_compile_options(-Werror)
++
++# enable aligned new in gcc7+
++if(CMAKE_COMPILER_IS_GNUCXX)
++  if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 7.0)
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -faligned-new")
++  endif()
++endif()
++
+ find_package(catkin REQUIRED COMPONENTS
+   moveit_core
+   pluginlib

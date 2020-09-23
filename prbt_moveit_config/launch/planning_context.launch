@@ -11,7 +11,7 @@
   <!-- Load universal robot description format (URDF) -->
   <param  if="$(arg load_robot_description)"
           name="$(arg robot_description)"
-          command="$(find xacro)/xacro --inorder $(find prbt_support)/urdf/prbt.xacro
+          command="$(find xacro)/xacro --inorder $(find moveit_resources_prbt_support)/urdf/prbt.xacro
                   gripper:=$(arg gripper)"/>
 
   <!-- The semantic description that corresponds to the URDF -->

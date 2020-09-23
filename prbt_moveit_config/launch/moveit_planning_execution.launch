@@ -70,7 +70,7 @@ limitations under the License.
   <!-- run the "real robot" interface nodes -->
   <!--   - this includes: robot_state, canopen, and run_permitted nodes -->
   <group unless="$(arg sim)">
-    <include file="$(find prbt_support)/launch/robot.launch" >
+    <include file="$(find moveit_resources_prbt_support)/launch/robot.launch" >
       <arg name="gripper" value="$(arg gripper)" />
       <arg name="load_robot_description" value="false" />
     </include>

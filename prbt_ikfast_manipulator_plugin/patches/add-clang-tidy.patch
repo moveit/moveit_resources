@@ -1,0 +1,29 @@
+Add clang-tidy to CMakeLists.txt
+Index: prbt_ikfast_manipulator_plugin/CMakeLists.txt
+===================================================================
+--- prbt_ikfast_manipulator_plugin.orig/CMakeLists.txt
++++ prbt_ikfast_manipulator_plugin/CMakeLists.txt
+@@ -34,6 +34,23 @@ target_link_libraries(${IKFAST_LIBRARY_N
+ # suppress warnings about unused variables in OpenRave's solver code
+ target_compile_options(${IKFAST_LIBRARY_NAME} PRIVATE -Wno-unused-variable)
+ 
++################
++## Clang tidy ##
++################
++if(CATKIN_ENABLE_CLANG_TIDY)
++  find_program(
++    CLANG_TIDY_EXE
++    NAMES "clang-tidy"
++    DOC "Path to clang-tidy executable"
++    )
++  if(NOT CLANG_TIDY_EXE)
++    message(FATAL_ERROR "clang-tidy not found.")
++  else()
++    message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
++    set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_EXE}")
++  endif()
++endif()
++
+ install(TARGETS
+   ${IKFAST_LIBRARY_NAME}
+   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})

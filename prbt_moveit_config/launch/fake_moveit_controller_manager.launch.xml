@@ -7,6 +7,6 @@
 
   <!-- The rest of the params are specific to this plugin -->
   <rosparam if="$(eval not arg('gripper'))" file="$(find moveit_resources_prbt_moveit_config)/config/fake_controllers.yaml"/>
-  <rosparam unless="$(eval not arg('gripper'))" file="$(eval find('prbt_'+ gripper + '_support') + '/config/fake_controllers.yaml')"/>
+  <rosparam unless="$(eval not arg('gripper'))" file="$(eval find('moveit_resources_prbt_'+ gripper + '_support') + '/config/fake_controllers.yaml')"/>
 
 </launch>
