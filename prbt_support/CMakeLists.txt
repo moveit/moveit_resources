@@ -48,15 +48,6 @@ include_directories(
   include ${catkin_INCLUDE_DIRS}
 )
 
-# SYSTEM_INFO_NODE
-add_executable(system_info_node
-  src/system_info_node.cpp
-  src/system_info.cpp
-  src/system_info_exception.cpp
-)
-add_dependencies(system_info_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(system_info_node ${catkin_LIBRARIES})
-
 #############
 ## Install ##
 #############
@@ -72,13 +63,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h"
   PATTERN ".svn" EXCLUDE)
 
-install(TARGETS
-  system_info_node
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 #############
 ## Testing ##
 #############
@@ -90,7 +74,6 @@ if(CATKIN_ENABLE_TESTING)
   find_package(moveit_ros_planning REQUIRED)
   find_package(cmake_modules REQUIRED)
   find_package(Eigen3 REQUIRED)
-  find_package(pilz_testutils REQUIRED)
 
   if(ENABLE_COVERAGE_TESTING)
     find_package(code_coverage REQUIRED)
@@ -100,23 +83,12 @@ if(CATKIN_ENABLE_TESTING)
   #catkin_lint: ignore_once missing_directory <-- needed for successful catkin_linting
   #Declare system to supress strict compiler errors in external library headers
   include_directories(
-    ${pilz_testutils_INCLUDE_DIRS}
     SYSTEM
     ${catkin_INCLUDE_DIRS}
     ${EIGEN3_INCLUDE_DIR}
     ${gmock_SOURCE_DIR}/include/
   )
 
-  #--- SystemInfo unit test ---
-  add_rostest_gmock(unittest_system_info
-      test/unit_tests/unittest_system_info.test
-      test/unit_tests/unittest_system_info.cpp
-      src/system_info.cpp
-      src/system_info_exception.cpp
-  )
-  target_link_libraries(unittest_system_info
-    ${catkin_LIBRARIES}
-  )
   #----------------------------------------
 
 #  add_rostest_gtest(urdf_tests

@@ -45,5 +45,4 @@
   <test_depend>prbt_hardware_support</test_depend>
   <test_depend>rosunit</test_depend>
   <test_depend>code_coverage</test_depend>
-  <test_depend>pilz_testutils</test_depend>
 </package>
