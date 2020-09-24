@@ -20,7 +20,6 @@
   <exec_depend>moveit_resources_prbt_ikfast_manipulator_plugin</exec_depend>
   <exec_depend>moveit_resources_prbt_moveit_config</exec_depend>
 
-  <exec_depend>schunk_description</exec_depend>
   <exec_depend>xacro</exec_depend>
 
 
