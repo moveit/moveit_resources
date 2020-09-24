@@ -1,6 +1,8 @@
 <launch>
 
   <arg name="gripper" default="" />
+
+  <!-- execute the trajectory in 'interpolate' mode or jump to goal position in 'last point' mode -->
   <arg name="execution_type" default="interpolate" />
 
   <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
