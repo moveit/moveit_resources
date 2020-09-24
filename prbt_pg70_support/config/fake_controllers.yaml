@@ -1,5 +1,5 @@
 #
-# Copyright © 2018 Pilz GmbH & Co. KG
+# Copyright (c) 2018 Pilz GmbH & Co. KG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 
 controller_list:
   - name: fake_manipulator_controller
+    type: $(arg execution_type)
     joints:
       - prbt_joint_1
       - prbt_joint_2
