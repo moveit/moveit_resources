@@ -20,7 +20,6 @@ add_definitions(-Wpedantic)
 
 catkin_package(
   CATKIN_DEPENDS roscpp
-  INCLUDE_DIRS include
 )
 
 ################
@@ -40,28 +39,15 @@ if(CATKIN_ENABLE_CLANG_TIDY)
   endif()
 endif()
 
-###########
-## Build ##
-###########
-
-include_directories(
-  include ${catkin_INCLUDE_DIRS}
-)
 
 #############
 ## Install ##
 #############
 
 ## Install URDF and meshes
-install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(DIRECTORY urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(DIRECTORY config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-
-install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
-  PATTERN ".svn" EXCLUDE)
 
 #############
 ## Testing ##
@@ -102,9 +88,6 @@ if(CATKIN_ENABLE_TESTING)
 #    ${moveit_core_LIBRARIES}
 #    ${moveit_ros_planning_LIBRARIES}
 #    ${Eigen3_LIBRARIES})
-
-  find_package(roslaunch REQUIRED)
-  roslaunch_add_file_check(launch)
 
   roslint_python(
     test/acceptance_tests/acceptance_test_joint_limits.py
