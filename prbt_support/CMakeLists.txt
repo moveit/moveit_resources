@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 project(moveit_resources_prbt_support)
 
 find_package(catkin REQUIRED COMPONENTS
-  canopen_chain_node
-  pilz_utils
   roscpp
   roslint
   sensor_msgs

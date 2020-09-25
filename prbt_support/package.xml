@@ -19,8 +19,6 @@
 
   <depend>roscpp</depend>
 
-  <build_depend>canopen_chain_node</build_depend>
-  <build_depend>pilz_utils</build_depend>
   <build_depend>roslint</build_depend>
   <build_depend>sensor_msgs</build_depend>
 
@@ -31,8 +29,6 @@
   <exec_depend>rosservice</exec_depend>
   <exec_depend>xacro</exec_depend>
   <exec_depend>controller_manager</exec_depend>
-  <exec_depend>pilz_control</exec_depend> <!--contains the PilzJointTrajectoryController-->
-  <exec_depend>pilz_status_indicator_rqt</exec_depend>
 
   <test_depend>rostest</test_depend>
   <test_depend>moveit_core</test_depend>
