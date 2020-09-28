@@ -17,7 +17,7 @@
   
   <!-- has gripper -->
   <xacro:unless value="${not gripper}">
-    <xacro:include filename="$(find prbt_${gripper}_support)/config/${gripper}.srdf.xacro" />
+    <xacro:include filename="$(find moveit_resources_prbt_${gripper}_support)/config/${gripper}.srdf.xacro" />
   </xacro:unless>
   
 </robot>
