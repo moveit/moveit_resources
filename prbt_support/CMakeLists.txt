@@ -10,7 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
 add_definitions(-Wall)
 add_definitions(-Wextra)
 add_definitions(-Wno-unused-parameter)
-add_definitions(-Werror)
 add_definitions(-std=c++11)
 add_definitions(-Wconversion) # At least this line needs to be below find_package to keep
                               #  the flag away from the gmock build

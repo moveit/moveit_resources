@@ -8,7 +8,6 @@ add_compile_options(-Wall)
 add_compile_options(-Wextra)
 add_compile_options(-Wno-unused-parameter)
 add_compile_options(-Wno-unused-variable)
-add_compile_options(-Werror)
 
 # enable aligned new in gcc7+
 if(CMAKE_COMPILER_IS_GNUCXX)
