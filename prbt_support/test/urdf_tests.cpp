@@ -106,7 +106,7 @@ void URDFKinematicsTest::SetUp()
       TestDataPoint("TestPos10", { 0, 0, 0, 0, 0, M_PI_2 }, Eigen::Vector3d(0, 0, L0 + L1 + L2 + L3)));
 }
 
-INSTANTIATE_TEST_SUITE_P(InstantiationName, URDFKinematicsTest, ::testing::Values(PARAM_MODEL), );
+INSTANTIATE_TEST_CASE_P(InstantiationName, URDFKinematicsTest, ::testing::Values(PARAM_MODEL), );
 /**
  * \brief test the kinematics of urdf model
  *
