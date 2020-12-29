@@ -6,7 +6,7 @@
   <author email="isucan@willowgarage.edu">Ioan Sucan</author>
   <author email="acorn@willowgarage.edu">Acorn Pooley</author>
 
-  <maintainer email="dave@dav.ee">Dave Coleman</maintainer>
+  <maintainer email="rhaschke@techfak.uni-bielefeld.de">Robert Haschke</maintainer>
 
   <license>BSD</license>
   <url type="website">http://moveit.ros.org</url>
