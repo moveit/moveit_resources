@@ -1,5 +1,8 @@
 <launch>
 
+  <!-- specify the planning pipeline -->
+  <arg name="pipeline" default="ompl" />
+
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
   <!-- Allow user to specify database location -->
@@ -7,31 +10,32 @@
 
   <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
-  <arg name="pipeline" default="ompl" />
+
+  <!-- By default, we will load or override the robot_description -->
+  <arg name="load_robot_description" default="true"/>
 
   <!--
   By default, hide joint_state_publisher's GUI
 
-  MoveIt!'s "demo" mode replaces the real robot driver with the joint_state_publisher.
+  MoveIt's "demo" mode replaces the real robot driver with the joint_state_publisher.
   The latter one maintains and publishes the current joint configuration of the simulated robot.
   It also provides a GUI to move the simulated robot around "manually".
   This corresponds to moving around the real robot without the use of MoveIt.
   -->
   <arg name="rviz_tutorial" default="false" />
   <arg name="use_gui" default="false" />
-
-  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
-  <include file="$(find moveit_resources_panda_moveit_config)/launch/planning_context.launch">
-    <arg name="load_robot_description" value="true"/>
-  </include>
+  <arg name="use_rviz" default="true" />
 
   <!-- If needed, broadcast static tf for robot root -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world panda_link0" />
 
+
   <!-- We do not have a robot connected, so publish fake joint states -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="/use_gui" value="$(arg use_gui)"/>
-    <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_gui)">
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)">
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
   </node>
 
   <!-- Given the published joint states, publish tf for the robot links -->
@@ -43,12 +47,14 @@
     <arg name="fake_execution" value="true"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
-    <arg name="pipeline" value="$(arg pipeline)"  />
+    <arg name="pipeline" value="$(arg pipeline)"/>
+    <arg name="load_robot_description" value="$(arg load_robot_description)"/>
   </include>
 
-  <!-- Run Rviz -->
-  <include file="$(find moveit_resources_panda_moveit_config)/launch/moveit_rviz.launch">
-    <arg name="rviz_tutorial" value="$(arg rviz_tutorial)"/>
+  <!-- Run Rviz and load the default config to see the state of the move_group node -->
+  <include file="$(find moveit_resources_panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
+    <arg name="rviz_config" value="$(find moveit_resources_panda_moveit_config)/launch/moveit.rviz" unless="$(arg rviz_tutorial)"/>
+    <arg name="rviz_config" value="$(find moveit_resources_panda_moveit_config)/launch/moveit_empty.rviz" if="$(arg rviz_tutorial)"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
