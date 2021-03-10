@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
-    <xacro:arg name="initial_positions_file" default="" />
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
 
     <!-- Import panda urdf file -->
     <xacro:include filename="$(find moveit_resources_panda_description)/urdf/panda.urdf" />
