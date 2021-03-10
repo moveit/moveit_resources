@@ -16,9 +16,7 @@
   <param name="trajectory_execution/allowed_start_tolerance" value="0.01"/> <!-- default 0.01 -->
 
   <!-- Load the robot specific controller manager; this sets the moveit_controller_manager ROS parameter -->
-  <arg name="moveit_controller_manager" default="fanuc" />
-  <include file="$(find moveit_resources_fanuc_moveit_config)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml">
-    <arg name="execution_type" value="$(arg execution_type)" />
-  </include>
+  <arg name="moveit_controller_manager" default="fanuc_m10ia" />
+  <include file="$(find moveit_resources_fanuc_moveit_config)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml"/>
 
 </launch>

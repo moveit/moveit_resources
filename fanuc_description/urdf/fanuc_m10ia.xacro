@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<robot name="fanuc_m10ia" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- This file is adapted from ROS-Industrial FANUC support repository: https://github.com/ros-industrial/fanuc -->
+  <xacro:include filename="$(find moveit_resources_fanuc_description)/urdf/fanuc_m10ia_macro.xacro"/>
+  <xacro:fanuc_m10ia prefix=""/>
+</robot>

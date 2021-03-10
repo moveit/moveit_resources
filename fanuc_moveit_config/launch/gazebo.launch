@@ -2,7 +2,7 @@
 <launch>
   <arg name="paused" default="false"/>
   <arg name="gazebo_gui" default="true"/>
-  <arg name="urdf_path" default="$(find moveit_resources_fanuc_description)/urdf/fanuc.urdf"/>
+  <arg name="urdf_path" default="$(find moveit_resources_fanuc_description)/urdf/fanuc_m10ia.xacro"/>
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">

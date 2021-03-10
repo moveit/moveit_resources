@@ -1,11 +1,11 @@
 moveit_setup_assistant_config:
   URDF:
     package: moveit_resources_fanuc_description
-    relative_path: urdf/fanuc.urdf
+    relative_path: urdf/fanuc_m10ia.xacro
     xacro_args: ""
   SRDF:
-    relative_path: config/fanuc.srdf
+    relative_path: config/fanuc_m10ia.srdf
   CONFIG:
     author_name: Dave Coleman
     author_email: dave@dav.ee
-    generated_timestamp: 1594035007
+    generated_timestamp: 1615412359
