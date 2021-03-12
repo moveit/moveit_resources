@@ -11,4 +11,8 @@
   <param name="request_adapters" value="$(arg planning_adapters)" />
   <param name="start_state_max_bounds_error" value="$(arg start_state_max_bounds_error)" />
 
+  <!-- MoveGroup capabilities to load for this pipeline, append sequence capability -->
+  <param name="capabilities" value="pilz_industrial_motion_planner/MoveGroupSequenceAction
+                                    pilz_industrial_motion_planner/MoveGroupSequenceService" />
+
 </launch>

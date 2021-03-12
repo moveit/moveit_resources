@@ -52,31 +52,28 @@
 
   <!-- Planning Pipelines -->
   <group ns="move_group/planning_pipelines">
-  <include ns="ompl" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="ompl" />
-    <param name="capabilities" value="$(arg capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
-  </include>
 
-  <include ns="chomp" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="chomp" />
-    <param name="capabilities" value="$(arg capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
-  </include>
+    <!-- OMPL -->
+    <include ns="ompl" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="ompl" />
+    </include>
 
-  <include ns="pilz_industrial_motion_planner" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="pilz_industrial_motion_planner" />
-    <param name="capabilities" value="$(arg capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
-  </include>
+    <!-- CHOMP -->
+    <include ns="chomp" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="chomp" />
+    </include>
 
-  <!-- Load non-default planner if passed as parameter -->
-  <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner'])" ns="$(arg pipeline)"
-	   file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="$(arg pipeline)" />
-    <param name="capabilities" value="$(arg capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
-  </include>
+    <!-- Pilz Industrial Motion -->
+    <include ns="pilz_industrial_motion_planner" file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="pilz_industrial_motion_planner" />
+    </include>
+
+    <!-- Load non-default planner if passed as parameter -->
+    <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner'])" ns="$(arg pipeline)"
+             file="$(find moveit_resources_panda_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="$(arg pipeline)" />
+    </include>
+
   </group>
 
   <!-- Trajectory Execution Functionality -->

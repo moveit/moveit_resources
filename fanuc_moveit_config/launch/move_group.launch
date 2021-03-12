@@ -48,28 +48,20 @@
   <group ns="move_group/planning_pipelines">
     <include ns="ompl" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="ompl" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
 
     <include ns="chomp" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="chomp" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
 
     <include ns="pilz_industrial_motion_planner" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="pilz_industrial_motion_planner" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
 
     <!-- Load non-default planner if passed as parameter -->
     <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner'])" ns="$(arg pipeline)"
              file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="$(arg pipeline)" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
   </group>
 
@@ -95,6 +87,8 @@
     <param name="max_safe_path_cost" value="$(arg max_safe_path_cost)"/>
     <param name="jiggle_fraction" value="$(arg jiggle_fraction)" />
     <param name="default_planning_pipeline" value="$(arg pipeline)" />
+    <param name="capabilities" value="$(arg capabilities)" />
+    <param name="disable_capabilities" value="$(arg disable_capabilities)" />
 
     <!-- Publish the planning scene of the physical robot so that rviz plugin can know actual robot -->
     <param name="planning_scene_monitor/publish_planning_scene" value="$(arg publish_monitored_planning_scene)" />

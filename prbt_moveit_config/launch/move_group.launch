@@ -28,15 +28,6 @@
   <!-- Enable/Disable gripper -->
   <arg name="gripper" default="" />
 
-  <!-- add sequence capabilities for pilz_command_planner pipeline -->
-  <arg name="_capabilities" value="$(arg capabilities)" unless="$(eval arg('pipeline')=='pilz_command_planner' or arg('pipeline')=='pilz_industrial_motion_planner')" />
-  <arg name="_capabilities"
-       value="$(arg capabilities) pilz_trajectory_generation/MoveGroupSequenceAction pilz_trajectory_generation/MoveGroupSequenceService"
-       if="$(eval arg('pipeline')=='pilz_command_planner')" />
-  <arg name="_capabilities"
-       value="$(arg capabilities) pilz_industrial_motion_planner/MoveGroupSequenceAction pilz_industrial_motion_planner/MoveGroupSequenceService"
-       if="$(eval arg('pipeline')=='pilz_industrial_motion_planner')" />
-
   <!-- load robot models -->
   <include file="$(find moveit_resources_prbt_moveit_config)/launch/planning_context.launch" >
     <arg name="gripper" value="$(arg gripper)" />
@@ -45,25 +36,23 @@
 
   <!-- Planning Pipelines -->
   <group ns="move_group/planning_pipelines">
+
+    <!-- OMPL -->
     <include ns="ompl" file="$(find moveit_resources_prbt_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="ompl" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
 
+    <!-- Pilz Industrial Motion-->
     <include ns="pilz_industrial_motion_planner" file="$(find moveit_resources_prbt_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="pilz_industrial_motion_planner" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
 
     <!-- Load non-default planner if passed as parameter -->
     <include if="$(eval arg('pipeline') not in ['ompl', 'pilz_industrial_motion_planner'])" ns="$(arg pipeline)"
              file="$(find moveit_resources_prbt_moveit_config)/launch/planning_pipeline.launch.xml">
       <arg name="pipeline" value="$(arg pipeline)" />
-      <param name="capabilities" value="$(arg capabilities)"/>
-      <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
     </include>
+
   </group>
 
   <!-- Trajectory Execution Functionality -->
@@ -85,12 +74,12 @@
     <!-- Set the display variable, in case OpenGL code is used internally -->
     <env name="DISPLAY" value="$(optenv DISPLAY :0)" />
 
-    <param name="allow_trajectory_execution" value="$(arg allow_trajectory_execution)"/>
+    <param name="allow_trajectory_execution" value="$(arg allow_trajectory_execution)" />
     <param name="max_safe_path_cost" value="$(arg max_safe_path_cost)"/>
     <param name="jiggle_fraction" value="$(arg jiggle_fraction)" />
     <param name="default_planning_pipeline" value="$(arg pipeline)" />
-    <param name="capabilities" value="$(arg _capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
+    <param name="capabilities" value="$(arg capabilities)" />
+    <param name="disable_capabilities" value="$(arg disable_capabilities)" />
 
     <!-- Publish the planning scene of the physical robot so that rviz plugin can know actual robot -->
     <param name="planning_scene_monitor/publish_planning_scene" value="$(arg publish_monitored_planning_scene)" />
