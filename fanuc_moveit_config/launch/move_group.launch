@@ -44,12 +44,26 @@
     <arg name="load_robot_description" value="$(arg load_robot_description)" />
   </include>
 
-  <!-- Planning Functionality -->
-  <include ns="move_group" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="$(arg pipeline)" />
-    <param name="capabilities" value="$(arg capabilities)"/>
-    <param name="disable_capabilities" value="$(arg disable_capabilities)"/>
-  </include>
+  <!-- Planning Pipelines -->
+  <group ns="move_group/planning_pipelines">
+    <include ns="ompl" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="ompl" />
+    </include>
+
+    <include ns="chomp" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="chomp" />
+    </include>
+
+    <include ns="pilz_industrial_motion_planner" file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="pilz_industrial_motion_planner" />
+    </include>
+
+    <!-- Load non-default planner if passed as parameter -->
+    <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner'])" ns="$(arg pipeline)"
+             file="$(find moveit_resources_fanuc_moveit_config)/launch/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="$(arg pipeline)" />
+    </include>
+  </group>
 
   <!-- Trajectory Execution Functionality -->
   <include ns="move_group" file="$(find moveit_resources_fanuc_moveit_config)/launch/trajectory_execution.launch.xml" if="$(arg allow_trajectory_execution)">
@@ -72,7 +86,9 @@
     <param name="allow_trajectory_execution" value="$(arg allow_trajectory_execution)"/>
     <param name="max_safe_path_cost" value="$(arg max_safe_path_cost)"/>
     <param name="jiggle_fraction" value="$(arg jiggle_fraction)" />
-
+    <param name="default_planning_pipeline" value="$(arg pipeline)" />
+    <param name="capabilities" value="$(arg capabilities)" />
+    <param name="disable_capabilities" value="$(arg disable_capabilities)" />
 
     <!-- Publish the planning scene of the physical robot so that rviz plugin can know actual robot -->
     <param name="planning_scene_monitor/publish_planning_scene" value="$(arg publish_monitored_planning_scene)" />
