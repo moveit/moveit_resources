@@ -1,5 +1,5 @@
-# Simulation settings for using moveit_sim_controllers
-moveit_sim_hw_interface:
+# Simulation settings for using MoveIt_sim_controllers
+MoveIt_sim_hw_interface:
   joint_model_group: manipulator
   joint_model_group_pose: all-zeros
 # Settings for ros_control_boilerplate control loop
