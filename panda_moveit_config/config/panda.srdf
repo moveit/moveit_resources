@@ -118,4 +118,3 @@
   <disable_collisions link1="panda_link6" link2="panda_rightfinger" reason="Never"/>
   <disable_collisions link1="panda_link7" link2="panda_rightfinger" reason="Never"/>
 </robot>
-

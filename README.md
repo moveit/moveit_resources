@@ -3,7 +3,7 @@ MoveIt Resources
 
 This repository includes various resources (URDFs, meshes, moveit_config packages) needed for MoveIt! testing.
 
-[![Build Status](https://travis-ci.org/ros-planning/moveit_resources.png?branch=master)](https://travis-ci.org/ros-planning/moveit_resources)
+GitHub Actions: [![Format](https://github.com/ros-planning/moveit_resources/actions/workflows/format.yml/badge.svg?branch=master)](https://github.com/ros-planning/moveit_resources/actions/workflows/format.yml?branch=master) [![BuildAndTest](https://github.com/ros-planning/moveit_resources/actions/workflows/industrial_ci_action.yml/badge.svg?branch=master)](https://github.com/ros-planning/moveit_resources/actions/workflows/industrial_ci_action.yml?branch=master)
 
 ## Included Robots
 
