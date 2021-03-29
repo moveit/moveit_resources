@@ -2,10 +2,14 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
-* add execution_type and pilz pipeline to panda config
-* Contributors: Pilz GmbH and Co. KG
+0.7.2 (2021-03-26)
+------------------
+* Migrate to GitHub Actions (`#57 <https://github.com/ros-planning/moveit_resources/issues/57>`_)
+* Fix formatting issues
+* Run multiple planning pipelines with MoveGroup (`#47 <https://github.com/ros-planning/moveit_resources/issues/47>`_)
+* Update panda_moveit_config launch files: add use_rviz parameter (`#52 <https://github.com/ros-planning/moveit_resources/issues/52>`_)
+* Add Pilz planner pipeline
+* Contributors: Christian Henkel, Joachim Schleicher, Henning Kayser, Michael Görner, Robert Haschke, Tyler Weaver
 
 0.7.1 (2020-10-09)
 ------------------

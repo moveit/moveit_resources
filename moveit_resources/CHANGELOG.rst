@@ -2,6 +2,11 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.2 (2021-03-26)
+------------------
+* Change package maintainer to MoveIt Release Team
+* Contributors: Dave Coleman
+
 0.7.1 (2020-10-09)
 ------------------
 

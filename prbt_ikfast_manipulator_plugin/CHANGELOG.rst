@@ -2,6 +2,7 @@
 Changelog for package moveit_resources_prbt_ikfast_manipulator_plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
-* initial commit from upstream PilzDE/pilz_robots version 0.5.19 (2020-09-07)
+0.7.2 (2021-03-26)
+------------------
+* Adding PRBT config (`#43 <https://github.com/ros-planning/moveit_resources/issues/43>`_)
+* Contributors: Christian Henkel, Joachim Schleicher
