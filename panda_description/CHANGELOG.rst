@@ -4,11 +4,9 @@ Changelog for package moveit_resources_panda_description
 
 0.7.2 (2021-03-26)
 ------------------
-* Master GitHub actions (`#57 <https://github.com/ros-planning/moveit_resources/issues/57>`_)
+* Migrate to GitHub Actions (`#57 <https://github.com/ros-planning/moveit_resources/issues/57>`_)
 * Fix formatting issues
-* Change package maintainer: Dave to Robert (`#49 <https://github.com/ros-planning/moveit_resources/issues/49>`_)
-  * Change package maintainer to MoveIt Release Team
-  Co-authored-by: Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
+* Change package maintainer to MoveIt Release Team
 * Contributors: Dave Coleman, Robert Haschke, Tyler Weaver
 
 0.7.1 (2020-10-09)
