@@ -2,6 +2,9 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.1 (2021-04-09)
+------------------
+
 2.0.0 (2020-11-20)
 ------------------
 * Port and modernize CMakeLists.txt + package.xml for ROS2 (`#26 <https://github.com/ros-planning/moveit_resources/issues/26>`_, `#31 <https://github.com/ros-planning/moveit_resources/issues/31>`_)

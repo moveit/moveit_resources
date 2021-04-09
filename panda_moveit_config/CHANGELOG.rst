@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.1 (2021-04-09)
+------------------
+* Update panda configs for ros2_control (`#51 <https://github.com/ros-planning/moveit_resources/issues/51>`_)
+* Contributors: Jafar Abdi, Tyler Weaver
+
 2.0.0 (2020-11-20)
 ------------------
 * Port and modernize CMakeLists.txt + package.xml for ROS2 (`#26 <https://github.com/ros-planning/moveit_resources/issues/26>`_, `#31 <https://github.com/ros-planning/moveit_resources/issues/31>`_)
