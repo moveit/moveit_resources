@@ -1,6 +1,6 @@
 import os
 import yaml
-from launch import LaunchDescription, condition
+from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
@@ -119,9 +119,9 @@ def generate_launch_description():
 
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
-    rviz_base = os.path.join(get_package_share_directory("moveit2_tutorials"), "launch")
-    rviz_full_config = os.path.join(rviz_base, "panda_moveit_config_demo.rviz")
-    rviz_empty_config = os.path.join(rviz_base, "panda_moveit_config_demo_empty.rviz")
+    rviz_base = os.path.join(get_package_share_directory("moveit_resources_panda_moveit_config"), "launch")
+    rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
+    rviz_empty_config = os.path.join(rviz_base, "moveit_empty.rviz")
     rviz_node_tutorial = Node(
         package="rviz2",
         executable="rviz2",
@@ -197,7 +197,7 @@ def generate_launch_description():
         ]
 
     # Warehouse mongodb server
-    db = LaunchConfiguration("db")
+    db_config = LaunchConfiguration("db")
     mongodb_server_node = Node(
         package="warehouse_ros_mongo",
         executable="mongo_wrapper_ros.py",
@@ -207,7 +207,7 @@ def generate_launch_description():
             {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
         ],
         output="screen",
-        condition=IfCondition(db)
+        condition=IfCondition(db_config)
     )
 
     return LaunchDescription(
