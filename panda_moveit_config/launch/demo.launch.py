@@ -1,6 +1,6 @@
 import os
 import yaml
-from launch import LaunchDescription
+from launch import LaunchDescription, condition
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
@@ -37,6 +37,10 @@ def generate_launch_description():
     # Command-line arguments
     tutorial_arg = DeclareLaunchArgument(
         "rviz_tutorial", default_value="False", description="Tutorial flag"
+    )
+
+    db_arg = DeclareLaunchArgument(
+        "db", default_value="False", description="Database flag"
     )
 
     # planning_context
@@ -193,6 +197,7 @@ def generate_launch_description():
         ]
 
     # Warehouse mongodb server
+    db = LaunchConfiguration("db")
     mongodb_server_node = Node(
         package="warehouse_ros_mongo",
         executable="mongo_wrapper_ros.py",
@@ -202,11 +207,13 @@ def generate_launch_description():
             {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
         ],
         output="screen",
+        condition=IfCondition(db)
     )
 
     return LaunchDescription(
         [
             tutorial_arg,
+            db_arg,
             rviz_node,
             rviz_node_tutorial,
             static_tf,
