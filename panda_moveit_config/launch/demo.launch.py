@@ -64,10 +64,6 @@ def generate_launch_description():
         "moveit_resources_panda_moveit_config", "config/kinematics.yaml"
     )
 
-    move_group_capabilities = {
-        "capabilities": """move_group/TfPublisher"""
-    }
-
     # Planning Functionality
     ompl_planning_pipeline_config = {
         "move_group": {
@@ -117,7 +113,6 @@ def generate_launch_description():
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
-            move_group_capabilities,
         ],
     )
 
