@@ -1,6 +1,6 @@
 <package>
   <name>moveit_resources</name>
-  <version>0.7.2</version>
+  <version>0.8.0</version>
   <description>Resources used for MoveIt! testing</description>
 
   <author email="isucan@willowgarage.edu">Ioan Sucan</author>

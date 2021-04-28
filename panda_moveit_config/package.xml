@@ -1,6 +1,6 @@
 <package>
   <name>moveit_resources_panda_moveit_config</name>
-  <version>0.7.2</version>
+  <version>0.8.0</version>
   <description>
     <p>
       MoveIt Resources for testing: Franka Emika Panda
