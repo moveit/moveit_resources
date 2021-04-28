@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_fanuc_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.0 (2021-04-28)
+------------------
+
 0.7.2 (2021-03-26)
 ------------------
 * Change package maintainer to MoveIt Release Team
