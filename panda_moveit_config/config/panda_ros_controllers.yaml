@@ -5,6 +5,9 @@ controller_manager:
     panda_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    panda_hand_controller:
+      type: position_controllers/GripperActionController
+
     joint_state_controller:
       type: joint_state_controller/JointStateController
 
@@ -19,3 +22,7 @@ panda_arm_controller:
       - panda_joint5
       - panda_joint6
       - panda_joint7
+
+panda_hand_controller:
+  ros__parameters:
+    joint: panda_finger_joint1
