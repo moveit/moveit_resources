@@ -1,6 +1,6 @@
 <package>
   <name>moveit_resources_pr2_description</name>
-  <version>0.7.2</version>
+  <version>0.7.3</version>
   <description>PR2 Resources used for MoveIt! testing</description>
 
   <author email="isucan@willowgarage.edu">Ioan Sucan</author>
