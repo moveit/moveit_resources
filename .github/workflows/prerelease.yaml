@@ -1,0 +1,24 @@
+# This config uses industrial_ci (https://github.com/ros-industrial/industrial_ci.git).
+# For troubleshooting, see readme (https://github.com/ros-industrial/industrial_ci/blob/master/README.rst)
+
+name: pre-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  default:
+    env:
+      ROS_DISTRO: noetic
+      PRERELEASE: true
+      DOWNSTREAM_WORKSPACE: github:ros-planning/moveit#master
+
+    name: ${{ env.ROS_DISTRO }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ros-industrial/industrial_ci@master
+        env: ${{ matrix.env }}
