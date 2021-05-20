@@ -11,6 +11,11 @@ controller_manager:
 
 panda_arm_controller:
   ros__parameters:
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
     joints:
       - panda_joint1
       - panda_joint2
