@@ -21,6 +21,8 @@ jobs:
           - {ROS_DISTRO: rolling, ROS_REPO: testing}
     env:
       CCACHE_DIR: ~/.ccache
+
+    name: ${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
