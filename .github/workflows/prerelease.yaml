@@ -3,8 +3,7 @@
 
 name: pre-release
 
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   default:
@@ -22,5 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: industrial_ci
-        uses: ros-industrial/industrial_ci@master
+      - uses: ros-industrial/industrial_ci@master
