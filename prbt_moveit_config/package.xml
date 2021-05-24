@@ -6,7 +6,7 @@
       MoveIt Resources for testing: Pilz PRBT 6
     </p>
     <p>
-		A project-internal configuration for testing in MoveIt.
+      A project-internal configuration for testing in MoveIt.
     </p>
   </description>
   <maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
@@ -35,5 +35,8 @@
   <exec_depend>xacro</exec_depend>
   <exec_depend>rviz</exec_depend>
   <exec_depend>moveit_resources_prbt_support</exec_depend>
-  <exec_depend>moveit_resources_prbt_ikfast_manipulator_plugin</exec_depend>
+
+  <!-- ensure that this old packages is removed -->
+  <conflict>moveit_resources_prbt_ikfast_manipulator_plugin</conflict>
+  <replace>moveit_resources_prbt_ikfast_manipulator_plugin</replace>
 </package>
