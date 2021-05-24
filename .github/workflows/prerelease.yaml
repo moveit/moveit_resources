@@ -1,0 +1,24 @@
+# This config uses industrial_ci (https://github.com/ros-industrial/industrial_ci.git).
+# For troubleshooting, see readme (https://github.com/ros-industrial/industrial_ci/blob/master/README.rst)
+
+name: pre-release
+
+on: [workflow_dispatch]
+
+jobs:
+  default:
+    strategy:
+      fail-fast: false
+      matrix:
+        distro: [noetic]
+
+    env:
+      ROS_DISTRO: ${{ matrix.distro }}
+      PRERELEASE: true
+      BASEDIR: ${{ github.workspace }}/.work
+
+    name: "${{ matrix.distro }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ros-industrial/industrial_ci@master
