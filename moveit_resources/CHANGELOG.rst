@@ -2,6 +2,9 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.4 (2021-05-24)
+------------------
+
 0.7.3 (2021-04-28)
 ------------------
 * Change package maintainer: Dave to Robert (`#49 <https://github.com/ros-planning/moveit_resources/issues/49>`_)

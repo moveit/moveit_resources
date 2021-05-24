@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_panda_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.4 (2021-05-24)
+------------------
+
 0.7.3 (2021-04-28)
 ------------------
 * Fix formatting issues
