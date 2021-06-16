@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        distro: [melodic, noetic]
+        distro: [noetic]
 
     env:
       ROS_DISTRO: ${{ matrix.distro }}
