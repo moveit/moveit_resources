@@ -1,5 +1,6 @@
 controller_names:
   - panda_arm_controller
+  - panda_hand_controller
 
 panda_arm_controller:
   action_ns: follow_joint_trajectory
@@ -13,3 +14,10 @@ panda_arm_controller:
     - panda_joint5
     - panda_joint6
     - panda_joint7
+
+panda_hand_controller:
+  action_ns: gripper_cmd
+  type: GripperCommand
+  default: true
+  joints:
+    - panda_finger_joint1
