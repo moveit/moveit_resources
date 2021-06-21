@@ -39,6 +39,8 @@
   <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment.
        Commented the dependency until this works. -->
   <!-- <exec_depend>warehouse_ros_mongo</exec_depend> -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_cmake_copyright</test_depend>
 
   <export>
       <build_type>ament_cmake</build_type>
