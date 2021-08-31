@@ -9,7 +9,7 @@ controller_manager:
       type: position_controllers/GripperActionController
 
     joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateController
+      type: joint_state_broadcaster/JointStateBroadcaster
 
 
 panda_arm_controller:
