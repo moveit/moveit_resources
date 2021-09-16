@@ -2,6 +2,13 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Migrate to joint state broadcaster
+* Add panda_hand_controller to demo.launch.py (`#87 <https://github.com/ros-planning/moveit_resources/issues/87>`_)
+* Add fake controller for panda_hand (`#73 <https://github.com/ros-planning/moveit_resources/issues/73>`_)
+* Contributors: Jafar Abdi, Marq Rasmussen, Vatan Aksoy Tezer
+
 2.0.2 (2021-05-24)
 ------------------
 * Add missing ros2_control parameters (`#74 <https://github.com/ros-planning/moveit_resources/issues/74>`_)

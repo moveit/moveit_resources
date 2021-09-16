@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Migrate to joint state broadcaster
+* Contributors: Vatan Aksoy Tezer
+
 2.0.2 (2021-05-24)
 ------------------
 * Remove move group prefixes from rviz configs (`#62 <https://github.com/ros-planning/moveit_resources/issues/62>`_)
