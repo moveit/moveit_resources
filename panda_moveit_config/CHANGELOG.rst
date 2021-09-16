@@ -2,8 +2,8 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2021-09-16)
+------------------
 * Migrate to joint state broadcaster
 * Add panda_hand_controller to demo.launch.py (`#87 <https://github.com/ros-planning/moveit_resources/issues/87>`_)
 * Add fake controller for panda_hand (`#73 <https://github.com/ros-planning/moveit_resources/issues/73>`_)

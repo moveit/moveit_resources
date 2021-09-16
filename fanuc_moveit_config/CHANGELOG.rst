@@ -2,8 +2,8 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2021-09-16)
+------------------
 * Migrate to joint state broadcaster
 * Contributors: Vatan Aksoy Tezer
 
