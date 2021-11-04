@@ -1,6 +1,6 @@
 controller_list:
   - name: fake_manipulator_controller
-    type: $(arg execution_type)
+    type: $(arg fake_execution_type)
     joints:
       - joint_1
       - joint_2

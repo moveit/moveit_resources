@@ -15,7 +15,7 @@
 
 controller_list:
   - name: fake_manipulator_controller
-    type: $(arg execution_type)
+    type: $(arg fake_execution_type)
     joints:
       - prbt_joint_1
       - prbt_joint_2
@@ -24,6 +24,6 @@ controller_list:
       - prbt_joint_5
       - prbt_joint_6
   - name: fake_gripper_controller
-    type: $(arg execution_type)
+    type: $(arg fake_execution_type)
     joints:
       - prbt_gripper_finger_left_joint

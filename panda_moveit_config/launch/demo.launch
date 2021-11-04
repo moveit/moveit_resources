@@ -15,7 +15,7 @@
   <arg name="load_robot_description" default="true"/>
 
   <!-- Override execution type for fake controllers -->
-  <arg name="execution_type" default="interpolate" />
+  <arg name="fake_execution_type" default="interpolate" />
 
   <!--
   By default, hide joint_state_publisher's GUI
@@ -47,7 +47,7 @@
   <include file="$(dirname)/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
     <arg name="fake_execution" value="true"/>
-    <arg name="execution_type" value="$(arg execution_type)"/>
+    <arg name="fake_execution_type" value="$(arg fake_execution_type)" />
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
