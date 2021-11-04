@@ -38,7 +38,7 @@ limitations under the License.
 
   <!-- Start RViz with default configuration settings. Once you have changed the configuration and have saved
        it inside your package folder, set the path and file name here. -->
-  <arg name="rviz_config" default="$(find moveit_resources_prbt_moveit_config)/launch/moveit.rviz" />
+  <arg name="rviz_config" default="$(dirname)/moveit.rviz" />
 
   <!-- configuration for moveit -->
   <arg name="pipeline" default="ompl" /><!-- Choose planning pipeline -->
@@ -46,7 +46,7 @@ limitations under the License.
   <arg name="disable_capabilities" default=""/> <!-- inhibit capabilites (space seperated) -->
 
   <!-- load the robot_description parameter before launching ROS-I nodes -->
-  <include file="$(find moveit_resources_prbt_moveit_config)/launch/planning_context.launch" >
+  <include file="$(dirname)/planning_context.launch">
     <arg name="load_robot_description" value="$(arg load_robot_description)" />
     <arg name="gripper" value="$(arg gripper)" />
   </include>
@@ -76,7 +76,7 @@ limitations under the License.
     </include>
   </group>
 
-  <include file="$(find moveit_resources_prbt_moveit_config)/launch/move_group.launch">
+  <include file="$(dirname)/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />
     <arg name="fake_execution" value="$(arg sim)"/>
     <arg name="pipeline" value="$(arg pipeline)" />
@@ -86,7 +86,7 @@ limitations under the License.
     <arg name="disable_capabilities" value="$(arg disable_capabilities)" />
   </include>
 
-  <include file="$(find moveit_resources_prbt_moveit_config)/launch/moveit_rviz.launch">
+  <include file="$(dirname)/moveit_rviz.launch">
     <arg name="rviz_config" value="$(arg rviz_config)"/>
   </include>
 
