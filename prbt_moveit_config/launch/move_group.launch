@@ -24,7 +24,7 @@
   <arg name="capabilities" default=""/> <!-- define capabilites that are loaded on start (space seperated) -->
   <arg name="disable_capabilities" default=""/> <!-- inhibit capabilites (space seperated) -->
 
-  <!-- Enable/Disable gripper -->
+  <!-- Choose gripper -->
   <arg name="gripper" default="" />
 
   <!-- load robot models -->
