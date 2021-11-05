@@ -3,6 +3,9 @@
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
 
+  <!-- Choose gripper -->
+  <arg name="gripper" default="" />
+
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
   <!-- Allow user to specify database location -->
@@ -50,6 +53,7 @@
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
+    <arg name="gripper" value="$(arg gripper)" />
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
