@@ -1,6 +1,4 @@
 <launch>
-  <arg name="load_gripper" default="true" />
-
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
 
@@ -11,8 +9,7 @@
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find moveit_resources_panda_description)/urdf/panda.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" command="$(find xacro)/xacro '$(find moveit_resources_panda_moveit_config)/config/panda_arm_hand.srdf.xacro'" if="$(arg load_gripper)" />
-  <param name="$(arg robot_description)_semantic" command="$(find xacro)/xacro '$(find moveit_resources_panda_moveit_config)/config/panda_arm.srdf.xacro'" unless="$(arg load_gripper)" />
+  <param name="$(arg robot_description)_semantic" textfile="$(find moveit_resources_panda_moveit_config)/config/panda.srdf" />
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
@@ -23,6 +20,7 @@
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
   <group ns="$(arg robot_description)_kinematics">
     <rosparam command="load" file="$(find moveit_resources_panda_moveit_config)/config/kinematics.yaml"/>
+
   </group>
 
 </launch>

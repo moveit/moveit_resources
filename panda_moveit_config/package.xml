@@ -1,4 +1,5 @@
 <package>
+
   <name>moveit_resources_panda_moveit_config</name>
   <version>0.8.0</version>
   <description>
@@ -6,11 +7,11 @@
       MoveIt Resources for testing: Franka Emika Panda
     </p>
     <p>
-		A project-internal configuration for testing in MoveIt.
+      A project-internal configuration for testing in MoveIt.
     </p>
   </description>
-  <author email="mike@picknik.ai">Mike Lautman</author>
-  <maintainer email="mike@picknik.ai">Mike Lautman</maintainer>
+  <author email="moveit_releasers@googlegroups.com">MoveIt maintainer team</author>
+  <maintainer email="moveit_releasers@googlegroups.com">MoveIt maintainer team</maintainer>
 
   <license>BSD</license>
 
@@ -20,20 +21,28 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>moveit_resources_panda_description</run_depend>
   <!-- disabled to remove circular dependencies
   <run_depend>moveit_ros_move_group</run_depend>
   <run_depend>moveit_fake_controller_manager</run_depend>
   <run_depend>moveit_kinematics</run_depend>
   <run_depend>moveit_planners_ompl</run_depend>
   <run_depend>moveit_ros_visualization</run_depend>
+  <run_depend>moveit_setup_assistant</run_depend>
+  <run_depend>moveit_simple_controller_manager</run_depend>
   -->
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>joint_state_publisher_gui</run_depend>
   <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>tf2_ros</run_depend>
   <run_depend>xacro</run_depend>
-  <run_depend>topic_tools</run_depend>
-  <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment.
-       Commented the dependency until this works. -->
+  <!-- The next 2 packages are required for the gazebo simulation.
+       We don't include them by default to prevent installing gazebo and all its dependencies. -->
+  <!-- <run_depend>joint_trajectory_controller</run_depend> -->
+  <!-- <run_depend>gazebo_ros_control</run_depend> -->
+  <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment. Commented the dependency until this works. -->
   <!-- <run_depend>warehouse_ros_mongo</run_depend> -->
+  <run_depend>moveit_resources_panda_description</run_depend>
+
+
 </package>
