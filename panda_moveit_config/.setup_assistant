@@ -2,9 +2,10 @@ moveit_setup_assistant_config:
   URDF:
     package: moveit_resources_panda_description
     relative_path: urdf/panda.urdf
+    xacro_args: ""
   SRDF:
-    relative_path: config/panda_arm_hand.srdf.xacro
+    relative_path: config/panda.srdf
   CONFIG:
-    author_name: Mike Lautman
-    author_email: mike@picknik.ai
-    generated_timestamp: 1519152260
+    author_name: MoveIt maintainer team
+    author_email: moveit_releasers@googlegroups.com
+    generated_timestamp: 1636098631
