@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_prbt_pg70_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.1 (2021-11-06)
+------------------
+* Rename launch parameter ``execution_type`` -> ``fake_execution_type`` to clarify that it is only used for fake controllers
+* Contributors: Robert Haschke
+
 0.8.0 (2021-04-28)
 ------------------
 

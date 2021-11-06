@@ -2,6 +2,11 @@
 Changelog for package prbt_support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.1 (2021-11-06)
+------------------
+* Drop all test code
+* Contributors: Michael Görner, Robert Haschke
+
 0.8.0 (2021-04-28)
 ------------------
 
