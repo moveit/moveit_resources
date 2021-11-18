@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.2 (2021-11-18)
+------------------
+* test_environment.launch: use fake_execution_type="last point" by default
+* Contributors: Robert Haschke
+
 0.8.1 (2021-11-06)
 ------------------
 * Recreated moveit_resources_panda_moveit_config with latest MSA (`#92 <https://github.com/ros-planning/moveit_resources/issues/92>`_)

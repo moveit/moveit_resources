@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.2 (2021-11-18)
+------------------
+* test_environment.launch: use fake_execution_type="last point" by default
+* Contributors: Robert Haschke
+
 0.8.1 (2021-11-06)
 ------------------
 * Rename launch parameter ``execution_type`` -> ``fake_execution_type`` to clarify that it is only used for fake controllers

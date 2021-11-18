@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_prbt_ikfast_manipulator_plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.2 (2021-11-18)
+------------------
+
 0.8.1 (2021-11-06)
 ------------------
 * Disable clang-tidy for ikfast package
