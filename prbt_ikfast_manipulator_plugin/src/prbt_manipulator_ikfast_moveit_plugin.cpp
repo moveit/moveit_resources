@@ -805,8 +805,12 @@ bool IKFastKinematicsPlugin::getPositionFK(const std::vector<std::string>& link_
     RCLCPP_ERROR(LOGGER, "Unexpected number of joint angles");
     return false;
   }
-
+#ifdef _MSC_VER
+  std::vector<IkReal> anglesVec(num_joints_);
+  IkReal* angles = anglesVec.data();
+#else
   IkReal angles[num_joints_];
+#endif
   for (unsigned char i = 0; i < num_joints_; i++)
     angles[i] = joint_angles[i];
 
