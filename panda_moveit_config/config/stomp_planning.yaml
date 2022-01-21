@@ -1,3 +1,11 @@
+planning_plugin: stomp_moveit/StompPlannerManager
+request_adapters: >-
+  default_planner_request_adapters/AddTimeParameterization
+  default_planner_request_adapters/FixWorkspaceBounds
+  default_planner_request_adapters/FixStartStateBounds
+  default_planner_request_adapters/FixStartStateCollision
+  default_planner_request_adapters/FixStartStatePathConstraints
+start_state_max_bounds_error: 0.1
 stomp/panda_arm:
   group_name: panda_arm
   optimization:
