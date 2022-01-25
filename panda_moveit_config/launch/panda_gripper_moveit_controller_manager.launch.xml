@@ -1,4 +1,5 @@
  <launch>
+  <arg name="execution_type" default="interpolate" />
   <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
   <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
