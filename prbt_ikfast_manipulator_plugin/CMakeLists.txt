@@ -4,10 +4,12 @@ project(moveit_resources_prbt_ikfast_manipulator_plugin)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_compile_options(-Wall)
-add_compile_options(-Wextra)
-add_compile_options(-Wno-unused-parameter)
-add_compile_options(-Wno-unused-variable)
+if(NOT MSVC)
+  add_compile_options(-Wall)
+  add_compile_options(-Wextra)
+  add_compile_options(-Wno-unused-parameter)
+  add_compile_options(-Wno-unused-variable)
+endif()
 
 # enable aligned new in gcc7+
 if(CMAKE_COMPILER_IS_GNUCXX)
@@ -32,8 +34,6 @@ catkin_package()
 set(IKFAST_LIBRARY_NAME prbt_manipulator_moveit_ikfast_plugin)
 add_library(${IKFAST_LIBRARY_NAME} src/prbt_manipulator_ikfast_moveit_plugin.cpp)
 target_link_libraries(${IKFAST_LIBRARY_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-# suppress warnings about unused variables in OpenRave's solver code
-target_compile_options(${IKFAST_LIBRARY_NAME} PRIVATE -Wno-unused-variable)
 
 install(TARGETS
   ${IKFAST_LIBRARY_NAME}
