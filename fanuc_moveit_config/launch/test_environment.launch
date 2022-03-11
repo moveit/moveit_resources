@@ -1,6 +1,0 @@
-<launch>
-  <include file="$(find moveit_resources_fanuc_moveit_config)/launch/demo.launch">
-    <arg name="use_gui" value="false"/>
-    <arg name="use_rviz" value="false"/>
-  </include>
-</launch>
