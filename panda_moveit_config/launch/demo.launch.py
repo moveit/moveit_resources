@@ -59,7 +59,10 @@ def generate_launch_description():
     robot_description_semantic = {
         "robot_description_semantic": robot_description_semantic_config
     }
-
+    # joint_limits.yaml is optional. It overrides limits in the URDF
+    joint_limits_yaml = load_yaml(
+        "moveit_resources_panda_moveit_config", "config/joint_limits.yaml"
+    )
     kinematics_yaml = load_yaml(
         "moveit_resources_panda_moveit_config", "config/kinematics.yaml"
     )
@@ -108,6 +111,7 @@ def generate_launch_description():
         parameters=[
             robot_description,
             robot_description_semantic,
+            joint_limits_yaml,
             kinematics_yaml,
             ompl_planning_pipeline_config,
             trajectory_execution,
