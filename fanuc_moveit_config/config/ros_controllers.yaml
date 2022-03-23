@@ -1,3 +1,15 @@
+# MoveIt uses this configuration for controller management
+trajectory_execution:
+    # When determining the expected duration of a trajectory, this multiplicative factor is applied to get the allowed duration of execution
+    allowed_execution_duration_scaling: 1.2
+    # Allow more than the expected execution time before triggering a trajectory cancel (applied after scaling)
+    allowed_goal_duration_margin: 0.5
+    # Allowed joint-value tolerance for validation that trajectory's first point matches current robot state
+    allowed_start_tolerance: 0.01
+
+moveit_manage_controllers: True
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
 # Simulation settings for using moveit_sim_controllers
 moveit_sim_hw_interface:
   joint_model_group: manipulator
@@ -21,8 +33,11 @@ hardware_interface:
 joint_state_broadcaster:
   type: joint_state_broadcaster/JointStateBroadcaster
   publish_rate: 50
-controller_list:
-  - name: manipulator_controller
+
+controller_names:
+  - manipulator_controller
+
+manipulator_controller:
     action_ns: follow_joint_trajectory
     default: True
     type: FollowJointTrajectory
