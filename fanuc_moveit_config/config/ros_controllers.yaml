@@ -7,9 +7,6 @@ trajectory_execution:
     # Allowed joint-value tolerance for validation that trajectory's first point matches current robot state
     allowed_start_tolerance: 0.01
 
-moveit_manage_controllers: True
-moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
-
 # Simulation settings for using moveit_sim_controllers
 moveit_sim_hw_interface:
   joint_model_group: manipulator
