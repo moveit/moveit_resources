@@ -19,7 +19,7 @@ def generate_launch_description():
         MoveItConfigsBuilder("moveit_resources_fanuc")
         .robot_description(file_path="config/fanuc.urdf.xacro")
         .robot_description_semantic(file_path="config/fanuc.srdf")
-        .trajectory_execution(file_path="config/fanuc_controllers.yaml")
+        .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .to_moveit_configs()
     )
 
@@ -73,7 +73,7 @@ def generate_launch_description():
     ros2_controllers_path = os.path.join(
         get_package_share_directory("moveit_resources_fanuc_moveit_config"),
         "config",
-        "fanuc_ros2_controllers.yaml",
+        "ros2_controllers.yaml",
     )
     ros2_control_node = Node(
         package="controller_manager",
