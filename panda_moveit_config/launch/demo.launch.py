@@ -1,9 +1,12 @@
 import os
 import yaml
-from launch import LaunchDescription
+from ament_index_python.packages import get_package_share_directory as pkgpath
+
+from launch import LaunchDescription, launch_description_sources
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
+from launch.actions import IncludeLaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
@@ -39,10 +42,6 @@ def generate_launch_description():
         "rviz_tutorial", default_value="False", description="Tutorial flag"
     )
 
-    db_arg = DeclareLaunchArgument(
-        "db", default_value="False", description="Database flag"
-    )
-
     # planning_context
     robot_description_config = xacro.process_file(
         os.path.join(
@@ -63,12 +62,13 @@ def generate_launch_description():
     kinematics_yaml = load_yaml(
         "moveit_resources_panda_moveit_config", "config/kinematics.yaml"
     )
+    robot_description_kinematics = {"robot_description_kinematics": kinematics_yaml}
 
     # Planning Functionality
     ompl_planning_pipeline_config = {
         "move_group": {
             "planning_plugin": "ompl_interface/OMPLPlanner",
-            "request_adapters": """default_planner_request_adapters/AddTimeOptimalParameterization default_planner_request_adapters/ResolveConstraintFrames default_planner_request_adapters/FixWorkspaceBounds default_planner_request_adapters/FixStartStateBounds default_planner_request_adapters/FixStartStateCollision default_planner_request_adapters/FixStartStatePathConstraints""",
+            "request_adapters": """default_planner_request_adapters/AddTimeOptimalParameterization default_planner_request_adapters/FixWorkspaceBounds default_planner_request_adapters/FixStartStateBounds default_planner_request_adapters/FixStartStateCollision default_planner_request_adapters/FixStartStatePathConstraints""",
             "start_state_max_bounds_error": 0.1,
         }
     }
@@ -79,7 +79,7 @@ def generate_launch_description():
 
     # Trajectory Execution Functionality
     moveit_simple_controllers_yaml = load_yaml(
-        "moveit_resources_panda_moveit_config", "config/panda_moveit_controllers.yaml"
+        "moveit_resources_panda_moveit_config", "config/panda_controllers.yaml"
     )
     moveit_controllers = {
         "moveit_simple_controller_manager": moveit_simple_controllers_yaml,
@@ -100,6 +100,14 @@ def generate_launch_description():
         "publish_transforms_updates": True,
     }
 
+    sensors_config=load_yaml(
+        "moveit_resources_panda_moveit_config", "config/sensors_kinect_pointcloud.yaml"
+    )    
+
+    octomap_params={"octomap_frame":"camera_rgb_optical_frame",
+                    "octomap_resolution":0.05,
+                    "max_range":5.0,
+                    "sensors":["sensors_point"]}
     # Start the actual move_group node/action server
     run_move_group_node = Node(
         package="moveit_ros_move_group",
@@ -113,14 +121,17 @@ def generate_launch_description():
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
+            sensors_config,
+            octomap_params
         ],
     )
 
+
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
-    rviz_base = os.path.join(get_package_share_directory("moveit_resources_panda_moveit_config"), "launch")
-    rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
-    rviz_empty_config = os.path.join(rviz_base, "moveit_empty.rviz")
+    rviz_base = os.path.join(get_package_share_directory("moveit2_tutorials"), "launch")
+    rviz_full_config = os.path.join(rviz_base, "panda_moveit_config_demo.rviz")
+    rviz_empty_config = os.path.join(rviz_base, "panda_moveit_config_demo_empty.rviz")
     rviz_node_tutorial = Node(
         package="rviz2",
         executable="rviz2",
@@ -186,17 +197,20 @@ def generate_launch_description():
 
     # Load controllers
     load_controllers = []
-    for controller in ["panda_arm_controller", "panda_hand_controller", "joint_state_broadcaster"]:
+    for controller in [
+        "panda_arm_controller",
+        "panda_hand_controller",
+        "joint_state_broadcaster",
+    ]:
         load_controllers += [
             ExecuteProcess(
-                cmd=["ros2 run controller_manager spawner.py {}".format(controller)],
+                cmd=["ros2 run controller_manager spawner {}".format(controller)],
                 shell=True,
                 output="screen",
             )
         ]
 
     # Warehouse mongodb server
-    db_config = LaunchConfiguration("db")
     mongodb_server_node = Node(
         package="warehouse_ros_mongo",
         executable="mongo_wrapper_ros.py",
@@ -206,13 +220,12 @@ def generate_launch_description():
             {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
         ],
         output="screen",
-        condition=IfCondition(db_config)
     )
+    
 
     return LaunchDescription(
         [
             tutorial_arg,
-            db_arg,
             rviz_node,
             rviz_node_tutorial,
             static_tf,
