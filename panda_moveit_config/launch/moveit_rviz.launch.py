@@ -54,9 +54,7 @@ def generate_launch_description():
         name="rviz2",
         output="log",
         arguments=["-d", rviz_empty_config],
-        parameters=[
-            kinematics_yaml
-        ],
+        parameters=[kinematics_yaml],
         condition=IfCondition(tutorial_mode),
     )
     rviz_node = Node(
@@ -65,9 +63,7 @@ def generate_launch_description():
         name="rviz2",
         output="log",
         arguments=["-d", rviz_full_config],
-        parameters=[
-            kinematics_yaml
-        ],
+        parameters=[kinematics_yaml],
         condition=UnlessCondition(tutorial_mode),
     )
 
