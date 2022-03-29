@@ -28,7 +28,7 @@ def generate_launch_description():
     )
 
     # Start the actual move_group node/action server
-    run_move_group_node = Node(
+    move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
@@ -72,7 +72,7 @@ def generate_launch_description():
     )
 
     # Static TF
-    static_tf = Node(
+    static_tf_node = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_transform_publisher",
@@ -136,9 +136,9 @@ def generate_launch_description():
             db_arg,
             rviz_node,
             rviz_node_tutorial,
-            static_tf,
+            static_tf_node,
             robot_state_publisher,
-            run_move_group_node,
+            move_group_node,
             ros2_control_node,
             mongodb_server_node,
         ]
