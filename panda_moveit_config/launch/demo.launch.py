@@ -8,6 +8,7 @@ from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
+
 def generate_launch_description():
 
     # Command-line arguments
@@ -32,14 +33,14 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[
-            moveit_config.to_dict()
-        ],
+        parameters=[moveit_config.to_dict()],
     )
 
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
-    rviz_base = os.path.join(get_package_share_directory("moveit_resources_panda_moveit_config"), "launch")
+    rviz_base = os.path.join(
+        get_package_share_directory("moveit_resources_panda_moveit_config"), "launch"
+    )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
     rviz_empty_config = os.path.join(rviz_base, "moveit_empty.rviz")
     rviz_node_tutorial = Node(
@@ -107,7 +108,11 @@ def generate_launch_description():
 
     # Load controllers
     load_controllers = []
-    for controller in ["panda_arm_controller", "panda_hand_controller", "joint_state_broadcaster"]:
+    for controller in [
+        "panda_arm_controller",
+        "panda_hand_controller",
+        "joint_state_broadcaster",
+    ]:
         load_controllers += [
             ExecuteProcess(
                 cmd=["ros2 run controller_manager spawner {}".format(controller)],
@@ -127,7 +132,7 @@ def generate_launch_description():
             {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
         ],
         output="screen",
-        condition=IfCondition(db_config)
+        condition=IfCondition(db_config),
     )
 
     return LaunchDescription(
