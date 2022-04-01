@@ -8,6 +8,7 @@ from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
+
 def generate_launch_description():
 
     # Command-line arguments
@@ -28,13 +29,13 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[
-            moveit_config.to_dict()
-        ],
+        parameters=[moveit_config.to_dict()],
     )
 
     # RViz
-    rviz_base = os.path.join(get_package_share_directory("moveit_resources_fanuc_moveit_config"), "launch")
+    rviz_base = os.path.join(
+        get_package_share_directory("moveit_resources_fanuc_moveit_config"), "launch"
+    )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
 
     rviz_node = Node(
@@ -104,7 +105,7 @@ def generate_launch_description():
             {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
         ],
         output="screen",
-        condition=IfCondition(db_config)
+        condition=IfCondition(db_config),
     )
 
     return LaunchDescription(
