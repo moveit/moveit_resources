@@ -2,6 +2,11 @@
 Changelog for package moveit_resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.4 (2022-05-19)
+------------------
+* Change ROS2 Maintainer (`#114 <https://github.com/ros-planning/moveit_resources/issues/114>`_)
+* Contributors: Dave Coleman
+
 2.0.3 (2021-09-16)
 ------------------
 

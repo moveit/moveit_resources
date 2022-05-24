@@ -2,6 +2,15 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.4 (2022-05-19)
+------------------
+* Update FANUC launch file and cleanup of deprecated XML files (`#120 <https://github.com/ros-planning/moveit_resources/issues/120>`_)
+* Delete deprecated Panda config and launch files (`#98 <https://github.com/ros-planning/moveit_resources/issues/98>`_)
+* Update yaml parameters for moveit_configs_utils (`#108 <https://github.com/ros-planning/moveit_resources/issues/108>`_)
+* Port PRBT packages for PILZ planner tests (`#101 <https://github.com/ros-planning/moveit_resources/issues/101>`_)
+* Adding RPBT config (`#43 <https://github.com/ros-planning/moveit_resources/issues/43>`_)
+* Contributors: AndyZe, Christian Henkel, Henning Kayser, Jafar Abdi, Sebastian Jahr, Stephanie Eng
+
 2.0.3 (2021-09-16)
 ------------------
 * Migrate to joint state broadcaster
