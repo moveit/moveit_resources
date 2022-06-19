@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- Version 0.7.1 from github.com/frankaemika/franka_ros/franka_description -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
 
     <!-- Name of this panda -->
