@@ -2,6 +2,13 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.5 (2022-06-25)
+------------------
+* Fix a typo in chomp_planning.yaml (`#143 <https://github.com/ros-planning/moveit_resources/issues/143>`_)
+* Update ros2_control launching (`#140 <https://github.com/ros-planning/moveit_resources/issues/140>`_)
+* Remove invalid sensor config (`#141 <https://github.com/ros-planning/moveit_resources/issues/141>`_)
+* Contributors: AndyZe, David V. Lu!!, Stephanie Eng
+
 2.0.4 (2022-05-19)
 ------------------
 * Update FANUC launch file and cleanup of deprecated XML files (`#120 <https://github.com/ros-planning/moveit_resources/issues/120>`_)
