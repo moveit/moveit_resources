@@ -83,16 +83,25 @@ def generate_launch_description():
         output="both",
     )
 
-    # Load controllers
-    load_controllers = []
-    for controller in ["fanuc_controller", "joint_state_broadcaster"]:
-        load_controllers += [
-            ExecuteProcess(
-                cmd=["ros2 run controller_manager spawner {}".format(controller)],
-                shell=True,
-                output="screen",
-            )
-        ]
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "joint_state_broadcaster",
+            "--controller-manager",
+            "/controller_manager",
+        ],
+    )
+
+    fanuc_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "fanuc_controller",
+            "--controller-manager",
+            "/controller_manager",
+        ],
+    )
 
     # Warehouse mongodb server
     db_config = LaunchConfiguration("db")
@@ -117,6 +126,7 @@ def generate_launch_description():
             run_move_group_node,
             ros2_control_node,
             mongodb_server_node,
+            joint_state_broadcaster_spawner,
+            fanuc_controller_spawner,
         ]
-        + load_controllers
     )
