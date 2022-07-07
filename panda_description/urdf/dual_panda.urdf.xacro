@@ -26,11 +26,11 @@
   </link>
 
   <!-- right arm with gripper -->
-  <xacro:panda_arm arm_id="$(arg arm_id_1)" connected_to="base"  xyz="0 -0.5 1" safety_distance="0.03"/>
-  <xacro:hand arm_id="$(arg arm_id_1)" rpy="0 0 0" connected_to="$(arg arm_id_1)_link8" safety_distance="0.03"/>
+  <xacro:panda_arm arm_id="$(arg arm_id_1)" connected_to="base"  xyz="0 -0.5 1"/>
+  <xacro:hand ns="$(arg arm_id_1)" rpy="0 0 0" connected_to="$(arg arm_id_1)_link8"/>
 
   <!-- left arm with gripper -->
-  <xacro:panda_arm arm_id="$(arg arm_id_2)" connected_to="base"  xyz="0 0.5 1" safety_distance="0.03"/>
-  <xacro:hand arm_id="$(arg arm_id_2)" rpy="0 0 0" connected_to="$(arg arm_id_2)_link8" safety_distance="0.03"/>
+  <xacro:panda_arm arm_id="$(arg arm_id_2)" connected_to="base"  xyz="0 0.5 1"/>
+  <xacro:hand ns="$(arg arm_id_2)" rpy="0 0 0" connected_to="$(arg arm_id_2)_link8"/>
 
 </robot>

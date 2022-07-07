@@ -79,10 +79,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_1_hand_tcp:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           panda_1_leftfinger:
             Alpha: 1
             Show Axes: false
@@ -143,10 +139,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_2_hand_tcp:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           panda_2_leftfinger:
             Alpha: 1
             Show Axes: false
@@ -258,10 +250,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_1_hand_tcp:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           panda_1_leftfinger:
             Alpha: 1
             Show Axes: false
@@ -322,10 +310,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_2_hand_tcp:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           panda_2_leftfinger:
             Alpha: 1
             Show Axes: false
