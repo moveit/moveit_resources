@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   URDF:
     package: moveit_resources_panda_description
-    relative_path: urdf/panda.urdf
+    relative_path: urdf/panda_arm_hand.urdf.xacro
     xacro_args: ""
   SRDF:
     relative_path: config/panda.srdf
