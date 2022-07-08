@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: moveit_resources_panda_description
+    relative_path: urdf/dual_panda.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/panda.srdf
+  CONFIG:
+    author_name: Cristian C. Beltran-Hernandez
+    author_email: cristianbehe@gmail.com
+    generated_timestamp: 1651284409

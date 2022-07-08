@@ -1,0 +1,9 @@
+<launch>
+  <arg name="pipeline" />
+  <arg name="fake_execution_type" default="last point" />
+
+  <include file="$(dirname)/demo.launch" pass_all_args="true">
+    <arg name="use_gui" value="false" />
+    <arg name="use_rviz" value="false" />
+  </include>
+</launch>
