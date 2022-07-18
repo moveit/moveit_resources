@@ -2,6 +2,12 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.6 (2022-07-18)
+------------------
+* fake_components -> mock_components (`#147 <https://github.com/ros-planning/moveit_resources/issues/147>`_)
+* Rename cartesian_limits.yaml (`#146 <https://github.com/ros-planning/moveit_resources/issues/146>`_)
+* Contributors: AndyZe, Tyler Weaver
+
 2.0.5 (2022-06-25)
 ------------------
 * Fix a typo in chomp_planning.yaml (`#143 <https://github.com/ros-planning/moveit_resources/issues/143>`_)
