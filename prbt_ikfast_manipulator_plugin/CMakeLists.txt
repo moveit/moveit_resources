@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.1.3)
 project(moveit_resources_prbt_ikfast_manipulator_plugin)
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 if(NOT MSVC)
   add_compile_options(-Wall)
   add_compile_options(-Wextra)
