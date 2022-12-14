@@ -160,6 +160,7 @@ def generate_launch_description():
         [
             tutorial_arg,
             db_arg,
+            ros2_control_hardware_type,
             rviz_node,
             rviz_node_tutorial,
             static_tf_node,
