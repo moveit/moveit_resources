@@ -1,4 +1,4 @@
-# benchmark_data
+# Benchmarking
 
 The databases contained in this package are generated from the datasets provided by KavrakiLab's [MotionBenchMaker](https://github.com/KavrakiLab/motion_bench_maker) with [yaml_to_warehouse](https://github.com/mamoll/yaml_to_warehouse).
 

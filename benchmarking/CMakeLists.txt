@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.2)
-project(moveit_resources_benchmark_data)
+project(moveit_resources_benchmarking)
 find_package(ament_cmake REQUIRED)
 
 ament_package()

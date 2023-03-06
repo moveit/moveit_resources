@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>moveit_resources_benchmark_data</name>
+  <name>moveit_resources_benchmarking</name>
   <version>1.0.0</version>
   <description>Databases for MoveIt benchmarking</description>
 
