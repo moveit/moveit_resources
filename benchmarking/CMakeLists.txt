@@ -4,4 +4,4 @@ find_package(ament_cmake REQUIRED)
 
 ament_package()
 
-install(DIRECTORY databases DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config databases launch DESTINATION share/${PROJECT_NAME})
