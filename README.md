@@ -10,3 +10,7 @@ GitHub Actions: [![Formatting (pre-commit))](https://github.com/ros-planning/mov
 - PR2
 - Fanuc M-10iA
 - Franka Emika Panda
+
+## Notes
+
+Please install [git lfs](https://git-lfs.com/) by running `git lfs install` if you plan to use the sqlite test databases.
