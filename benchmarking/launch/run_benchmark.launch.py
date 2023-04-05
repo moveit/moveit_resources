@@ -21,10 +21,10 @@ def load_yaml(package_name, file_path):
 def generate_launch_description():
 
     moveit_ros_benchmarks_config = (
-        ParameterBuilder("moveit_ros_benchmarks")
+        ParameterBuilder("moveit_resources_benchmarking")
         .yaml(
             parameter_namespace="benchmark_config",
-            file_path="run_benchmark.yaml",
+            file_path="config/run_benchmark.yaml",
         )
         .to_dict()
     )
@@ -34,8 +34,8 @@ def generate_launch_description():
         .robot_description(file_path="config/panda.urdf.xacro")
         .planning_pipelines("ompl", ["ompl", "chomp", "pilz_industrial_motion_planner"])
         .moveit_cpp(
-            file_path=get_package_share_directory("moveit_ros_benchmarks")
-            + "/moveit_cpp.yaml"
+            file_path=get_package_share_directory("moveit_resources_benchmarking")
+            + "/config/moveit_cpp.yaml"
         )
         .to_moveit_configs()
     )
@@ -61,7 +61,7 @@ def generate_launch_description():
 
     sqlite_database = (
         get_package_share_directory("moveit_resources_benchmarking")
-        + "/panda_test_db.sqlite"
+        + "/databases/panda_test_db.sqlite"
     )
 
     warehouse_ros_config = {
