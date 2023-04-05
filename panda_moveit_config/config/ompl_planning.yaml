@@ -8,7 +8,7 @@ request_adapters: >-
   default_planner_request_adapters/FixStartStatePathConstraints
 start_state_max_bounds_error: 0.1
 planner_configs:
-  AnytimePathShortening:
+  APSConfigDefault:
     type: geometric::AnytimePathShortening
     shortcut: 1  # Attempt to shortcut all new solution paths
     hybridize: 1  # Compute hybrid solution trajectories
@@ -141,7 +141,7 @@ planner_configs:
 
 panda_arm:
   planner_configs:
-    - AnytimePathShortening
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
@@ -168,6 +168,7 @@ panda_arm:
     - TrajOptDefault
 panda_arm_hand:
   planner_configs:
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
@@ -194,6 +195,7 @@ panda_arm_hand:
     - TrajOptDefault
 hand:
   planner_configs:
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
