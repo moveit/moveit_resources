@@ -10,6 +10,13 @@ request_adapters: >-
   default_planner_request_adapters/FixStartStatePathConstraints
 start_state_max_bounds_error: 0.1
 planner_configs:
+  APSConfigDefault:
+    type: geometric::AnytimePathShortening
+    shortcut: 1  # Attempt to shortcut all new solution paths
+    hybridize: 1  # Compute hybrid solution trajectories
+    max_hybrid_paths: 36  # Number of hybrid paths generated per iteration
+    num_planners: 8  # The number of default planners to use for planning
+    planners: "RRTConnect,RRTConnect,RRTConnect,RRTConnect,RRTConnect,RRTConnect,RRTConnect,RRTConnect"  # A comma-separated list of planner types (e.g., "PRM,EST,RRTConnect"Optionally, planner parameters can be passed to change the default:"PRM[max_nearest_neighbors=5],EST[goal_bias=.5],RRT[range=10. goal_bias=.1]"
   SBLkConfigDefault:
     type: geometric::SBL
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
@@ -136,6 +143,7 @@ planner_configs:
 
 panda_arm:
   planner_configs:
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
@@ -162,6 +170,7 @@ panda_arm:
     - TrajOptDefault
 panda_arm_hand:
   planner_configs:
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
@@ -188,6 +197,7 @@ panda_arm_hand:
     - TrajOptDefault
 hand:
   planner_configs:
+    - APSConfigDefault
     - SBLkConfigDefault
     - ESTkConfigDefault
     - LBKPIECEkConfigDefault
