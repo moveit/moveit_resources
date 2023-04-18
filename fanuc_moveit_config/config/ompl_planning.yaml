@@ -1,5 +1,7 @@
 planning_plugin: ompl_interface/OMPLPlanner
 request_adapters: >-
+  # Optionally use Ruckig for jerk-limited smoothing
+  # default_planner_request_adapters/AddRuckigTrajectorySmoothing
   default_planner_request_adapters/AddTimeOptimalParameterization
   default_planner_request_adapters/ResolveConstraintFrames
   default_planner_request_adapters/FixWorkspaceBounds
