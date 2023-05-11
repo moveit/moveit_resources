@@ -15,4 +15,3 @@ stomp_moveit:
   exponentiated_cost_sensitivity: 0.5
   control_cost_weight: 0.1
   delta_t: 0.1
-  control_cost_weight: 0.0
