@@ -13,4 +13,4 @@ GitHub Actions: [![Formatting (pre-commit))](https://github.com/ros-planning/mov
 
 ## Notes
 
-Please install [git lfs](https://git-lfs.com/) by running `git lfs install` if you plan to use the sqlite test databases.
+The benchmarking resources have been moved to https://github.com/ros-planning/moveit_benchmark_resources.
