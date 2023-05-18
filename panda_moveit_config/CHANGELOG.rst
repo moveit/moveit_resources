@@ -2,6 +2,27 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.0 (2023-05-18)
+------------------
+* Cherry pick TopicBased rename `#163 <https://github.com/ros-planning/moveit_resources/issues/163>`_ (`#172 <https://github.com/ros-planning/moveit_resources/issues/172>`_)
+  Co-authored-by: Jafar <cafer.abdi@gmail.com>
+* Add STOMP planner config (`#171 <https://github.com/ros-planning/moveit_resources/issues/171>`_)
+  Co-authored-by: Henning Kayser <henningkayser@picknik.ai>
+* Remove comments from scalars (`#169 <https://github.com/ros-planning/moveit_resources/issues/169>`_)
+* Enable AnytimePathShortening and fix benchmarks (`#167 <https://github.com/ros-planning/moveit_resources/issues/167>`_)
+* Update information about Ruckig and jerk limits (`#168 <https://github.com/ros-planning/moveit_resources/issues/168>`_)
+* Enable acceleration limits so TOTG can work (`#166 <https://github.com/ros-planning/moveit_resources/issues/166>`_)
+* Add joint limits to Panda demo launch file + make consistent with tutorials (`#165 <https://github.com/ros-planning/moveit_resources/issues/165>`_)
+* [ROS2]: Add a new parameter to panda's xacro to select ros2_control hardware interface type (`#158 <https://github.com/ros-planning/moveit_resources/issues/158>`_)
+  * Add xacro parameter to select ros2_control hardware interface type
+  * Update panda demo launch file to have ros2_control_hardware_type argument
+  * Add argument to the launch description
+* Add execution_duration_monitoring param to the example config (`#160 <https://github.com/ros-planning/moveit_resources/issues/160>`_)
+* Fix xacro deprecation warning: use xacro.load_yaml() (`#156 <https://github.com/ros-planning/moveit_resources/issues/156>`_)
+* Add Pilz to panda launch (`#154 <https://github.com/ros-planning/moveit_resources/issues/154>`_)
+* Add pilz_industrial_motion_planner_planning.yaml (`#151 <https://github.com/ros-planning/moveit_resources/issues/151>`_)
+* Contributors: AndyZe, Giovanni, Jafar, Marq Rasmussen, Sebastian Castro, Sebastian Jahr, Stephanie Eng
+
 2.0.6 (2022-07-18)
 ------------------
 * fake_components -> mock_components (`#147 <https://github.com/ros-planning/moveit_resources/issues/147>`_)

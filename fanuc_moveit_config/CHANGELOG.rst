@@ -2,6 +2,14 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.0 (2023-05-18)
+------------------
+* Remove comments from scalars (`#169 <https://github.com/ros-planning/moveit_resources/issues/169>`_)
+* Enable AnytimePathShortening and fix benchmarks (`#167 <https://github.com/ros-planning/moveit_resources/issues/167>`_)
+* Update information about Ruckig and jerk limits (`#168 <https://github.com/ros-planning/moveit_resources/issues/168>`_)
+* Add execution_duration_monitoring param to the example config (`#160 <https://github.com/ros-planning/moveit_resources/issues/160>`_)
+* Contributors: AndyZe, Sebastian Jahr, Stephanie Eng
+
 2.0.6 (2022-07-18)
 ------------------
 * fake_components -> mock_components (`#147 <https://github.com/ros-planning/moveit_resources/issues/147>`_)
