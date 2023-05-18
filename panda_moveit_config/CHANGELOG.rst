@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.1 (2023-05-18)
+------------------
+
 2.1.0 (2023-05-18)
 ------------------
 * Cherry pick TopicBased rename `#163 <https://github.com/ros-planning/moveit_resources/issues/163>`_ (`#172 <https://github.com/ros-planning/moveit_resources/issues/172>`_)
