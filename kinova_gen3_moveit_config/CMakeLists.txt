@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(kinova_gen3_7dof_robotiq_2f_85_moveit_config)
+project(moveit_resources_kinova_gen3_moveit_config)
 
 find_package(ament_cmake REQUIRED)
 

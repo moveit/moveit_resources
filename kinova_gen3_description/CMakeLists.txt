@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.2)
-project(kortex_description)
+project(moveit_resources_kinova_gen3_description)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)

@@ -22,7 +22,7 @@
     <xacro:arg name="fake_sensor_commands" default="true" />
     <xacro:arg name="use_internal_bus_gripper_comm" default="false" />
 
-    <xacro:include filename="$(find kortex_description)/robots/kortex_robot.xacro" />
+    <xacro:include filename="$(find moveit_resources_kinova_gen3_description)/robots/kortex_robot.xacro" />
     <link name="world" />
     <xacro:load_robot
         parent="world"

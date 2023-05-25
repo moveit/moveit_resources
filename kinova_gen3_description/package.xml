@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>kortex_description</name>
+  <name>moveit_resources_kinova_gen3_description</name>
   <version>0.0.0</version>
   <description>
     <p>URDF and xacro description package for Kortex robots</p>

@@ -8,14 +8,14 @@ controller_manager:
     joint_trajectory_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    streaming_controller:
-      type: kortex2_controllers/TwistController
+    # streaming_controller:
+    #   type: kortex2_controllers/TwistController
 
     robotiq_gripper_controller:
       type: position_controllers/GripperActionController
 
-    fault_controller:
-      type: kortex2_controllers/FaultController
+    # fault_controller:
+    #   type: kortex2_controllers/FaultController
 
 joint_trajectory_controller:
   ros__parameters:
