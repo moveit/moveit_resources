@@ -1,10 +1,12 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
+from launch.event_handlers import OnProcessExit
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
@@ -22,7 +24,7 @@ def generate_launch_description():
 
     ros2_control_hardware_type = DeclareLaunchArgument(
         "ros2_control_hardware_type",
-        default_value="mock_components",
+        default_value="sim_ignition",
         description="ROS2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
     )
 
@@ -41,6 +43,7 @@ def generate_launch_description():
         .planning_pipelines(
             pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"]
         )
+        .planning_scene_monitor(publish_robot_description=True)
         .to_moveit_configs()
     )
 
@@ -48,9 +51,9 @@ def generate_launch_description():
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
-        output="screen",
+        output="log",
         parameters=[moveit_config.to_dict()],
-        arguments=["--ros-args", "--log-level", "info"],
+        arguments=["--ros-args", "--log-level", "fatal"], # MoveIt is spamming the log because of unknown '*_mimic' joints
     )
 
     # RViz
@@ -108,27 +111,47 @@ def generate_launch_description():
         parameters=[moveit_config.robot_description],
     )
 
+    # NOTE: Comment out ros2_control for now
     # ros2_control using FakeSystem as hardware
-    ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"),
-        "config",
-        "ros2_controllers.yaml",
-    )
-    ros2_control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[moveit_config.robot_description, ros2_controllers_path],
-        output="screen",
+    # ros2_controllers_path = os.path.join(
+    #     get_package_share_directory("moveit_resources_panda_moveit_config"),
+    #     "config",
+    #     "ros2_controllers.yaml",
+    # )
+    # ros2_control_node = Node(
+    #     package="controller_manager",
+    #     executable="ros2_control_node",
+    #     parameters=[moveit_config.robot_description, ros2_controllers_path],
+    #     output="screen",
+    # )
+
+    # Parse xacro file to pass as string to Ignition
+    import xacro
+    robot_description_config = xacro.process_file(
+        os.path.join(
+            get_package_share_directory("moveit_resources_panda_moveit_config"),
+            "config",
+            "panda.urdf.xacro",
+        ),
+        mappings={"ros2_control_hardware_type": "sim_ignition"}
     )
 
-    joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
+    ignition_spawn_entity = Node(
+        package='ros_gz_sim',
+        executable='create',
+        output='screen',
         arguments=[
-            "joint_state_broadcaster",
-            "--controller-manager",
-            "/controller_manager",
-        ],
+                   # '-string', robot_description_config.toxml(),
+                   '-topic', 'robot_description',
+                   '-name', 'panda',
+                   '-allow-renaming', 'true'],
+    )
+
+
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'joint_state_broadcaster'],
+        output='screen'
     )
 
     panda_arm_controller_spawner = Node(
@@ -157,20 +180,28 @@ def generate_launch_description():
         condition=IfCondition(db_config),
     )
 
-    return LaunchDescription(
-        [
-            tutorial_arg,
-            db_arg,
-            ros2_control_hardware_type,
-            rviz_node,
-            rviz_node_tutorial,
-            static_tf_node,
-            robot_state_publisher,
-            move_group_node,
-            ros2_control_node,
-            joint_state_broadcaster_spawner,
-            panda_arm_controller_spawner,
-            panda_hand_controller_spawner,
-            mongodb_server_node,
-        ]
-    )
+    return LaunchDescription([
+        tutorial_arg,
+        db_arg,
+        ros2_control_hardware_type,
+        # Launch gazebo environment
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py')]),
+            launch_arguments=[('gz_args', [' -r -v 4 empty.sdf'])]),
+        move_group_node,
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=ignition_spawn_entity,
+                on_exit=[load_joint_state_broadcaster,
+                         panda_arm_controller_spawner,
+                         panda_hand_controller_spawner,],
+            )
+        ),
+        rviz_node,
+        rviz_node_tutorial,
+        static_tf_node,
+        robot_state_publisher,
+        mongodb_server_node,
+    ])
