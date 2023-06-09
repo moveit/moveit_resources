@@ -1,13 +1,31 @@
 import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.conditions import IfCondition, UnlessCondition
+import launch_ros
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
+_PANDA_MOVEIT_CONFIG_RSC = "moveit_resources_panda_moveit_config"
+
+def _octomap_launch_params():
+    _path_panda_sensor_conf = PathJoinSubstitution(
+        [
+            launch_ros.substitutions.FindPackageShare(_PANDA_MOVEIT_CONFIG_RSC),
+            "config",
+            "sensors_kinect_pointcloud.yaml"
+        ])
+    _params = [
+        launch_ros.parameter_descriptions.ParameterFile(
+            param_file=_path_panda_sensor_conf,
+            allow_substs=True),
+        {"octomap_frame": "odom_combined"},
+        {"octomap_resolution": 0.05},
+        {"max_range": 5.0}]
+    return _params
 
 def generate_launch_description():
 
@@ -49,14 +67,14 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=[moveit_config.to_dict()] + _octomap_launch_params(),
         arguments=["--ros-args", "--log-level", "info"],
     )
 
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
     rviz_base = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"), "launch"
+        get_package_share_directory(_PANDA_MOVEIT_CONFIG_RSC), "launch"
     )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
     rviz_empty_config = os.path.join(rviz_base, "moveit_empty.rviz")
