@@ -16,7 +16,7 @@ _PANDA_MOVEIT_CONFIG_RSC = "moveit_resources_panda_moveit_config"
 
 def _octomap_launch_params(params: ParameterBuilder):
     params.yaml("config/sensors_kinect_pointcloud.yaml")
-    params.parameter("octomap_frame", "odom_combined")
+    params.parameter("octomap_frame", "panda_link0")
     params.parameter("octomap_resolution", 0.05)
     params.parameter("max_range", 5.0)
     return params.to_dict()
