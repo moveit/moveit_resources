@@ -16,7 +16,7 @@ _PANDA_MOVEIT_CONFIG_RSC = "moveit_resources_panda_moveit_config"
 
 def _octomap_launch_params(params: ParameterBuilder):
     #params.yaml("config/sensors_kinect_pointcloud.yaml")
-    params.yaml("config/sensors_3d.yaml")
+    #params.yaml("config/sensors_3d.yaml")  # Done in MoveItConfigsBuilder instead.
     params.parameter("octomap_frame", "camera_rgb_optical_frame")
     params.parameter("octomap_resolution", 0.05)
     params.parameter("max_range", 5.0)
@@ -52,8 +52,8 @@ def generate_launch_description():
         .robot_description_semantic(file_path="config/panda.srdf")
         .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
         .planning_pipelines(
-            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"]
-        )
+            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"])
+        .sensors_3d("config/sensors_3d.yaml")
         .to_moveit_configs()
     )
 
