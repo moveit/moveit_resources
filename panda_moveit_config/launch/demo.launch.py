@@ -13,6 +13,7 @@ from launch_param_builder import ParameterBuilder
 
 
 _PANDA_MOVEIT_CONFIG_RSC = "moveit_resources_panda_moveit_config"
+_PARAM_SHAPEBUFFER_WAITTIME = "robot_description_planning/shape_transform_cache_lookup_wait_time"
 
 def _octomap_launch_params(params: ParameterBuilder):
     #params.yaml("config/sensors_kinect_pointcloud.yaml")
@@ -64,7 +65,15 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()] + [_octomap_launch_params(_params_movegroup)],
+        parameters=(
+            [moveit_config.to_dict()] + 
+            [_octomap_launch_params(_params_movegroup)] +
+            # Accepting parameter https://github.com/ros-planning/moveit_tutorials/pull/633/files#diff-18137573adf3517e2254c0e1c75458e06b4571feed5a0b20ef0441fe2776aed7R7
+            # Because Parameter in ROS2 must be defined nested under a node, downstream
+            # should be able to pass parameter request to where a node is defined.
+            [{_PARAM_SHAPEBUFFER_WAITTIME: LaunchConfiguration(
+                'shape_transform_cache_lookup_wait_time')}]
+            ),
         arguments=["--ros-args", "--log-level", "info"],
     )
 
