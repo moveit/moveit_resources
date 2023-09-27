@@ -72,7 +72,8 @@ def generate_launch_description():
             # Because Parameter in ROS2 must be defined nested under a node, downstream
             # should be able to pass parameter request to where a node is defined.
             [{_PARAM_SHAPEBUFFER_WAITTIME: LaunchConfiguration(
-                'shape_transform_cache_lookup_wait_time')}]
+                'shape_transform_cache_lookup_wait_time')}] +
+            [{"use_sim_time": False}]
             ),
         arguments=["--ros-args", "--log-level", "info"],
     )

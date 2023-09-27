@@ -7,7 +7,7 @@ kinect_pointcloud:
     max_update_rate: 1.0
     ns: kinect
     padding_offset: 0.1
-    padding_scale: 1.0
+    padding_scale: 0.5
     point_cloud_topic: /camera/depth_registered/points
     point_subsample: 1
     sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
