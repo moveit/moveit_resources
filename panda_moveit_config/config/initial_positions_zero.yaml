@@ -1,0 +1,14 @@
+# Initial positions for the panda arm's ros2_control Gazebo support
+# NOTE: These modified values from initial_positions.yaml move the default state
+# closer to 0 for Humble backwards support. The original values would cause
+# a strong initial motion, leading to self-collision. Reason is that initial_values
+# are not supported by ign_ros2_control
+# See: https://github.com/ros-controls/gz_ros2_control/pull/27
+initial_positions:
+  panda_joint1: 0.0
+  panda_joint2: 0.0
+  panda_joint3: 0.0
+  panda_joint4: 0.0
+  panda_joint5: 0.0
+  panda_joint6: 1.571
+  panda_joint7: 0.785

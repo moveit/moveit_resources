@@ -1,10 +1,21 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import (
+    DeclareLaunchArgument,
+    IncludeLaunchDescription,
+    RegisterEventHandler,
+)
 from launch.substitutions import LaunchConfiguration
-from launch.conditions import IfCondition, UnlessCondition
+from launch.conditions import (
+    IfCondition,
+    UnlessCondition,
+    LaunchConfigurationNotEquals,
+    LaunchConfigurationEquals,
+)
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
+from launch.event_handlers import OnProcessExit
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
@@ -23,7 +34,21 @@ def generate_launch_description():
     ros2_control_hardware_type = DeclareLaunchArgument(
         "ros2_control_hardware_type",
         default_value="mock_components",
-        description="ROS2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
+        description="ROS2 control hardware interface type to use for the launch file",
+        choices=["mock_components", "isaac", "sim_ignition"],
+    )
+
+    declare_initial_positions_file = DeclareLaunchArgument(
+        "initial_positions_file",
+        default_value="initial_positions.yaml",
+        description="Initial joint positions to use for ros2_control fake components and simulation -- expected to be a yaml file inside the config directory",
+    )
+
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="False",
+        description="Use simulation (Gazebo) clock if True",
     )
 
     moveit_config = (
@@ -33,7 +58,8 @@ def generate_launch_description():
             mappings={
                 "ros2_control_hardware_type": LaunchConfiguration(
                     "ros2_control_hardware_type"
-                )
+                ),
+                "initial_positions_file": LaunchConfiguration("initial_positions_file"),
             },
         )
         .robot_description_semantic(file_path="config/panda.srdf")
@@ -41,6 +67,7 @@ def generate_launch_description():
         .planning_pipelines(
             pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"]
         )
+        .planning_scene_monitor(publish_robot_description=True)
         .to_moveit_configs()
     )
 
@@ -48,9 +75,13 @@ def generate_launch_description():
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
-        output="screen",
-        parameters=[moveit_config.to_dict()],
-        arguments=["--ros-args", "--log-level", "info"],
+        output="log",
+        parameters=[moveit_config.to_dict(), {"use_sim_time": use_sim_time}],
+        arguments=[
+            "--ros-args",
+            "--log-level",
+            "fatal",
+        ],  # MoveIt is spamming the log because of unknown '*_mimic' joints
     )
 
     # RViz
@@ -86,6 +117,7 @@ def generate_launch_description():
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
             moveit_config.joint_limits,
+            {"use_sim_time": use_sim_time},
         ],
         condition=UnlessCondition(tutorial_mode),
     )
@@ -96,6 +128,7 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
+        parameters=[{"use_sim_time": use_sim_time}],
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "panda_link0"],
     )
 
@@ -105,7 +138,7 @@ def generate_launch_description():
         executable="robot_state_publisher",
         name="robot_state_publisher",
         output="both",
-        parameters=[moveit_config.robot_description],
+        parameters=[moveit_config.robot_description, {"use_sim_time": use_sim_time}],
     )
 
     # ros2_control using FakeSystem as hardware
@@ -119,28 +152,73 @@ def generate_launch_description():
         executable="ros2_control_node",
         parameters=[moveit_config.robot_description, ros2_controllers_path],
         output="screen",
+        condition=LaunchConfigurationNotEquals(
+            "ros2_control_hardware_type", "sim_ignition"
+        ),
     )
 
-    joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
+    ignition_spawn_entity = Node(
+        package="ros_gz_sim",
+        executable="create",
+        output="screen",
         arguments=[
-            "joint_state_broadcaster",
-            "--controller-manager",
-            "/controller_manager",
+            "-topic",
+            "robot_description",
+            "-name",
+            "panda",
+            "-allow-renaming",
+            "true",
         ],
+        condition=LaunchConfigurationEquals(
+            "ros2_control_hardware_type", "sim_ignition"
+        ),
     )
 
-    panda_arm_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["panda_arm_controller", "-c", "/controller_manager"],
+    # Clock Bridge
+    sim_clock_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=["/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock"],
+        output="screen",
+        condition=LaunchConfigurationEquals(
+            "ros2_control_hardware_type", "sim_ignition"
+        ),
     )
 
-    panda_hand_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["panda_hand_controller", "-c", "/controller_manager"],
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "joint_state_broadcaster",
+        ],
+        output="screen",
+    )
+
+    panda_arm_controller_spawner = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "panda_arm_controller",
+        ],
+        output="screen",
+    )
+
+    panda_hand_controller_spawner = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "panda_hand_controller",
+        ],
+        output="screen",
     )
 
     # Warehouse mongodb server
@@ -162,15 +240,35 @@ def generate_launch_description():
             tutorial_arg,
             db_arg,
             ros2_control_hardware_type,
+            declare_use_sim_time_cmd,
+            declare_initial_positions_file,
+            sim_clock_bridge,
+            # Launch gazebo environment
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(
+                    [
+                        os.path.join(
+                            get_package_share_directory("ros_gz_sim"),
+                            "launch",
+                            "gz_sim.launch.py",
+                        )
+                    ]
+                ),
+                launch_arguments=[("gz_args", [" -r -v 4 empty.sdf"])],
+                condition=LaunchConfigurationEquals(
+                    "ros2_control_hardware_type", "sim_ignition"
+                ),
+            ),
+            move_group_node,
+            ignition_spawn_entity,
+            ros2_control_node,
+            load_joint_state_broadcaster,
+            panda_arm_controller_spawner,
+            panda_hand_controller_spawner,
             rviz_node,
             rviz_node_tutorial,
             static_tf_node,
             robot_state_publisher,
-            move_group_node,
-            ros2_control_node,
-            joint_state_broadcaster_spawner,
-            panda_arm_controller_spawner,
-            panda_hand_controller_spawner,
             mongodb_server_node,
         ]
     )

@@ -9,6 +9,9 @@
                 <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
                     <plugin>mock_components/GenericSystem</plugin>
                 </xacro:if>
+                <xacro:if value="${ros2_control_hardware_type == 'sim_ignition'}">
+                    <plugin>ign_ros2_control/IgnitionSystem</plugin>
+                </xacro:if>
                 <xacro:if value="${ros2_control_hardware_type == 'isaac'}">
                     <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
                     <param name="joint_commands_topic">/isaac_joint_commands</param>
@@ -65,5 +68,19 @@
                 <state_interface name="velocity"/>
             </joint>
         </ros2_control>
+
+        <xacro:if value="${ros2_control_hardware_type == 'sim_ignition'}">
+          <link name="world"/>
+          <joint name="panda_world" type="fixed">
+              <origin rpy="0 0 0" xyz="0 0 0.0" />
+              <parent link="world" />
+              <child link="panda_link0" />
+          </joint>
+          <gazebo>
+            <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+              <parameters>$(find moveit_resources_panda_moveit_config)/config/ros2_controllers.yaml</parameters>
+            </plugin>
+          </gazebo>
+        </xacro:if>
     </xacro:macro>
 </robot>
