@@ -1,13 +1,27 @@
 import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.conditions import IfCondition, UnlessCondition
+import launch_ros
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
+from launch_param_builder import ParameterBuilder
+
+
+_PANDA_MOVEIT_CONFIG_RSC = "moveit_resources_panda_moveit_config"
+_PARAM_SHAPEBUFFER_WAITTIME = "robot_description_planning/shape_transform_cache_lookup_wait_time"
+
+def _octomap_launch_params(params: ParameterBuilder):
+    #params.yaml("config/sensors_kinect_pointcloud.yaml")
+    #params.yaml("config/sensors_3d.yaml")  # Done in MoveItConfigsBuilder instead.
+    params.parameter("octomap_frame", "camera_rgb_optical_frame")
+    params.parameter("octomap_resolution", 0.05)
+    params.parameter("max_range", 5.0)
+    return params.to_dict()
 
 def generate_launch_description():
 
@@ -39,24 +53,35 @@ def generate_launch_description():
         .robot_description_semantic(file_path="config/panda.srdf")
         .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
         .planning_pipelines(
-            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"]
-        )
+            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner", "stomp"])
+        .sensors_3d("config/sensors_3d.yaml")
         .to_moveit_configs()
     )
+
+    _params_movegroup = ParameterBuilder(_PANDA_MOVEIT_CONFIG_RSC)
 
     # Start the actual move_group node/action server
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=(
+            [moveit_config.to_dict()] + 
+            [_octomap_launch_params(_params_movegroup)] +
+            # Accepting parameter https://github.com/ros-planning/moveit_tutorials/pull/633/files#diff-18137573adf3517e2254c0e1c75458e06b4571feed5a0b20ef0441fe2776aed7R7
+            # Because Parameter in ROS2 must be defined nested under a node, downstream
+            # should be able to pass parameter request to where a node is defined.
+            [{_PARAM_SHAPEBUFFER_WAITTIME: LaunchConfiguration(
+                'shape_transform_cache_lookup_wait_time')}] +
+            [{"use_sim_time": False}]
+            ),
         arguments=["--ros-args", "--log-level", "info"],
     )
 
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
     rviz_base = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"), "launch"
+        get_package_share_directory(_PANDA_MOVEIT_CONFIG_RSC), "launch"
     )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
     rviz_empty_config = os.path.join(rviz_base, "moveit_empty.rviz")
