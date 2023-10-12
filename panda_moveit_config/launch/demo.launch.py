@@ -16,15 +16,19 @@ def generate_launch_description():
         "rviz_tutorial", default_value="False", description="Tutorial flag"
     )
 
-    db_arg = DeclareLaunchArgument(
-        "db", default_value="False", description="Database flag"
-    )
-
     ros2_control_hardware_type = DeclareLaunchArgument(
         "ros2_control_hardware_type",
         default_value="mock_components",
         description="ROS2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
     )
+
+    warehouse_sqlite_path_arg = DeclareLaunchArgument(
+        "warehouse_sqlite_path",
+        default_value=os.path.expanduser("~/.ros/warehouse_ros.sqlite"),
+        description="Path where the warehouse database should be stored",
+    )
+
+    warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
 
     moveit_config = (
         MoveItConfigsBuilder("moveit_resources_panda")
@@ -44,12 +48,17 @@ def generate_launch_description():
         .to_moveit_configs()
     )
 
+    warehouse_ros_config = {
+        "warehouse_plugin": "warehouse_ros_sqlite::DatabaseConnection",
+        "warehouse_host": warehouse_sqlite_path,
+    }
+
     # Start the actual move_group node/action server
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=[moveit_config.to_dict(), warehouse_ros_config],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
@@ -71,6 +80,7 @@ def generate_launch_description():
             moveit_config.robot_description_semantic,
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
+            warehouse_ros_config,
         ],
         condition=IfCondition(tutorial_mode),
     )
@@ -86,6 +96,7 @@ def generate_launch_description():
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
             moveit_config.joint_limits,
+            warehouse_ros_config,
         ],
         condition=UnlessCondition(tutorial_mode),
     )
@@ -143,25 +154,11 @@ def generate_launch_description():
         arguments=["panda_hand_controller", "-c", "/controller_manager"],
     )
 
-    # Warehouse mongodb server
-    db_config = LaunchConfiguration("db")
-    mongodb_server_node = Node(
-        package="warehouse_ros_mongo",
-        executable="mongo_wrapper_ros.py",
-        parameters=[
-            {"warehouse_port": 33829},
-            {"warehouse_host": "localhost"},
-            {"warehouse_plugin": "warehouse_ros_mongo::MongoDatabaseConnection"},
-        ],
-        output="screen",
-        condition=IfCondition(db_config),
-    )
-
     return LaunchDescription(
         [
             tutorial_arg,
-            db_arg,
             ros2_control_hardware_type,
+            warehouse_sqlite_path_arg,
             rviz_node,
             rviz_node_tutorial,
             static_tf_node,
@@ -171,6 +168,5 @@ def generate_launch_description():
             joint_state_broadcaster_spawner,
             panda_arm_controller_spawner,
             panda_hand_controller_spawner,
-            mongodb_server_node,
         ]
     )
