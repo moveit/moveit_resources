@@ -1,7 +1,7 @@
 <launch>
 
   <!-- The request adapters (plugins) used when planning. ORDER MATTERS! -->
-  <arg name="planning_adapters" default="" />
+  <arg name="planning_adapters" default="default_planner_request_adapters/ResolveConstraintFrames" />
 
   <param name="planning_plugin" value="pilz_industrial_motion_planner::CommandPlanner" />
   <param name="request_adapters" value="$(arg planning_adapters)" />

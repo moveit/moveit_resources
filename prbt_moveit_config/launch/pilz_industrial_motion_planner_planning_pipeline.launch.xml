@@ -3,7 +3,7 @@
   <!-- Pilz Command Planner Plugin for MoveIt -->
   <arg name="planning_plugin" value="pilz_industrial_motion_planner::CommandPlanner" />
 
-  <arg name="planning_adapters" value="" />
+  <arg name="planning_adapters" value="default_planner_request_adapters/ResolveConstraintFrames"/>
 
   <arg name="start_state_max_bounds_error" value="0.1" />
 
