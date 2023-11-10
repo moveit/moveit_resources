@@ -16,6 +16,6 @@ jobs:
           - {ROS_DISTRO: noetic, ROS_REPO: testing}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: 'ros-industrial/industrial_ci@master'
         env: ${{ matrix.env }}

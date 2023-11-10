@@ -20,5 +20,5 @@ jobs:
     name: "${{ matrix.distro }}"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ros-industrial/industrial_ci@master
