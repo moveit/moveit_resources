@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_panda_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.3 (2023-11-10)
+------------------
+* Add dual_panda_moveit_config (`#133 <https://github.com/ros-planning/moveit_resources/issues/133>`_)
+* Contributors: Cristian Beltran
+
 0.8.2 (2021-11-18)
 ------------------
 * Fix transparency of meshes for Gazebo 8 (https://github.com/frankaemika/franka_ros/pull/79)

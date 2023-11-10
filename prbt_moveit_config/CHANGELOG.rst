@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_prbt_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.8.3 (2023-11-10)
+------------------
+* Add ResolveConstraintFrames to all planning pipelines
+* Contributors: Robert Haschke
+
 0.8.2 (2021-11-18)
 ------------------
 
