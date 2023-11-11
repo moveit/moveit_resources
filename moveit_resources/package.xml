@@ -20,8 +20,14 @@
 
   <run_depend>moveit_resources_panda_description</run_depend>
   <run_depend>moveit_resources_panda_moveit_config</run_depend>
+  <run_depend>moveit_resources_dual_panda_moveit_config</run_depend>
 
   <run_depend>moveit_resources_pr2_description</run_depend>
+
+  <run_depend>moveit_resources_prbt_ikfast_manipulator_plugin</run_depend>
+  <run_depend>moveit_resources_prbt_moveit_config</run_depend>
+  <run_depend>moveit_resources_prbt_pg70_support</run_depend>
+  <run_depend>moveit_resources_prbt_support</run_depend>
 
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>robot_state_publisher</run_depend>
