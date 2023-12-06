@@ -1,4 +1,6 @@
-planning_plugin: chomp_interface/CHOMPPlanner
+planning_plugins:
+  - chomp_interface/CHOMPPlanner
+# The order of the elements in the adapter corresponds to the order they are processed by the motion planning pipeline.
 request_adapters:
   - default_planning_request_adapters/ResolveConstraintFrames
   - default_planning_request_adapters/ValidateWorkspaceBounds
