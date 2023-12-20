@@ -11,7 +11,7 @@
                 <state_interface name="position">
                   <param name="initial_value">0.0</param>
                 </state_interface>
-                <state_interface name="velocity"/>
+                <state_interface name="velocity">
                     <param name="initial_value">0.0</param>
                 </state_interface>
             </joint>
@@ -22,7 +22,7 @@
                 <state_interface name="position">
                   <param name="initial_value">0.0</param>
                 </state_interface>
-                <state_interface name="velocity"/>
+                <state_interface name="velocity">
                     <param name="initial_value">0.0</param>
                 </state_interface>
             </joint>
