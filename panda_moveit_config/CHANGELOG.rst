@@ -2,6 +2,27 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.0.0 (2024-02-19)
+------------------
+* Update acceleration limits for robot configs (`#195 <https://github.com/ros-planning/moveit_resources/issues/195>`_)
+  * update panda
+  * rename file to joint_limits_jerk_limited.yaml
+  * rename to hard_joint_limits.yaml
+  ---------
+* Update ros2 control usage (`#192 <https://github.com/ros-planning/moveit_resources/issues/192>`_)
+  * Update ros2_control usage
+  * Update dual_arm_panda_moveit_config/config/panda_hand.ros2_control.xacro
+  Co-authored-by: Sebastian Castro <4603398+sea-bass@users.noreply.github.com>
+  ---------
+  Co-authored-by: Sebastian Castro <4603398+sea-bass@users.noreply.github.com>
+* Update planner configs (`#191 <https://github.com/ros-planning/moveit_resources/issues/191>`_)
+* Update planning pipeline configs (`#189 <https://github.com/ros-planning/moveit_resources/issues/189>`_)
+* Fix Panda demo launch for MoveIt 2 tutorials (`#190 <https://github.com/ros-planning/moveit_resources/issues/190>`_)
+* Add bio_ik and TRAC-IK kinematics configs (`#187 <https://github.com/ros-planning/moveit_resources/issues/187>`_)
+* Remove unsupported planner configs (`#182 <https://github.com/ros-planning/moveit_resources/issues/182>`_)
+* Create Panda URDF Xacro, restore URDF for RobotModelTestUtils (`#178 <https://github.com/ros-planning/moveit_resources/issues/178>`_)
+* Contributors: Henning Kayser, Paul Gesel, Sebastian Castro, Sebastian Jahr
+
 2.1.1 (2023-05-18)
 ------------------
 
