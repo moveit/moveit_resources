@@ -2,6 +2,16 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.7 (2024-04-03)
+------------------
+* Update ros2 control usage (`#192 <https://github.com/ros-planning/moveit_resources/issues/192>`_) (`#193 <https://github.com/ros-planning/moveit_resources/issues/193>`_)
+* Replace Isaac with TopicBased (`#163 <https://github.com/ros-planning/moveit_resources/issues/163>`_)
+* Add execution_duration_monitoring param to the example config (`#160 <https://github.com/ros-planning/moveit_resources/issues/160>`_)
+* Fix xacro deprecation warning: use xacro.load_yaml() (`#156 <https://github.com/ros-planning/moveit_resources/issues/156>`_)
+* Add Pilz to panda launch (`#154 <https://github.com/ros-planning/moveit_resources/issues/154>`_)
+* Add pilz_industrial_motion_planner_planning.yaml (`#151 <https://github.com/ros-planning/moveit_resources/issues/151>`_)
+* Contributors: AndyZe, Giovanni, Jafar, Sebastian Jahr, Stephanie Eng
+
 2.0.6 (2022-07-18)
 ------------------
 * fake_components -> mock_components (`#147 <https://github.com/ros-planning/moveit_resources/issues/147>`_)

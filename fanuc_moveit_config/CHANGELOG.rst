@@ -2,6 +2,12 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.7 (2024-04-03)
+------------------
+* Update ros2 control usage (`#192 <https://github.com/ros-planning/moveit_resources/issues/192>`_) (`#193 <https://github.com/ros-planning/moveit_resources/issues/193>`_)
+* Add execution_duration_monitoring param to the example config (`#160 <https://github.com/ros-planning/moveit_resources/issues/160>`_)
+* Contributors: AndyZe, Sebastian Jahr
+
 2.0.6 (2022-07-18)
 ------------------
 * fake_components -> mock_components (`#147 <https://github.com/ros-planning/moveit_resources/issues/147>`_)
