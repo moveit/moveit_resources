@@ -5,22 +5,25 @@ name: pre-release
 
 on:
   workflow_dispatch:
+    inputs:
+      ROS_DISTRO:
+        type: string
+        required: true
+        description: 'ROS distribution codename:'
+        default: rolling
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
 
 jobs:
   default:
-    strategy:
-      fail-fast: false
-      matrix:
-        distro: [foxy, galactic, humble, rolling]
-
     env:
-      ROS_DISTRO: ${{ matrix.distro }}
+      ROS_DISTRO: ${{ inputs.ROS_DISTRO }}
       PRERELEASE: true
       BASEDIR: ${{ github.workspace }}/.work
 
-    name: "${{ matrix.distro }}"
+    name: "${{ inputs.ROS_DISTRO }}"
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-      - name: industrial_ci
-        uses: ros-industrial/industrial_ci@master
+      - uses: actions/checkout@v4
+      - uses: ros-industrial/industrial_ci@master
