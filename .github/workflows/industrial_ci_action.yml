@@ -27,12 +27,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: rhaschke/cache@main
         with:
-          save-always: true
           path: ${{ env.CCACHE_DIR }}
           key: ccache-${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}-${{ github.sha }}
           restore-keys: |
             ccache-${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}
+        env:
+          GHA_CACHE_SAVE: always
       - uses: ros-industrial/industrial_ci@master
         env: ${{ matrix.env }}
