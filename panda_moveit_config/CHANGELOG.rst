@@ -2,6 +2,16 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix name of execution_duration_monitoring parameter (`#202 <https://github.com/ros-planning/moveit_resources/issues/202>`_)
+* Add missing dependencies
+* CI: Update actions
+* Add reasonable joint jerk limits for the Panda (`#201 <https://github.com/ros-planning/moveit_resources/issues/201>`_)
+* Remove mimic tags from ros2_control URDF in Panda descriptions (`#200 <https://github.com/ros-planning/moveit_resources/issues/200>`_)
+* Allow nonzero velocity at trajectory end for ros2_controllers (`#198 <https://github.com/ros-planning/moveit_resources/issues/198>`_)
+* Contributors: AndyZe, Felix Exner (fexner), Robert Haschke, Sebastian Castro
+
 3.0.0 (2024-02-19)
 ------------------
 * Update acceleration limits for robot configs (`#195 <https://github.com/ros-planning/moveit_resources/issues/195>`_)

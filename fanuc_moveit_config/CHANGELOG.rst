@@ -2,6 +2,13 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix name of execution_duration_monitoring parameter (`#202 <https://github.com/ros-planning/moveit_resources/issues/202>`_)
+* Add missing dependencies
+* Allow nonzero velocity at trajectory end for ros2_controllers (`#198 <https://github.com/ros-planning/moveit_resources/issues/198>`_)
+* Contributors: Felix Exner (fexner), Robert Haschke, Sebastian Castro
+
 3.0.0 (2024-02-19)
 ------------------
 * Update ros2 control usage (`#192 <https://github.com/ros-planning/moveit_resources/issues/192>`_)

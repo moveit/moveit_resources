@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_fanuc_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.0.0 (2024-02-19)
 ------------------
 

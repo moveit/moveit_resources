@@ -2,6 +2,9 @@
 Changelog for package moveit_resources_panda_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.0.0 (2024-02-19)
 ------------------
 * Create Panda URDF Xacro, restore URDF for RobotModelTestUtils (`#178 <https://github.com/ros-planning/moveit_resources/issues/178>`_)
