@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>dual_arm_panda_moveit_config</name>
-  <version>3.0.0</version>
+  <version>3.1.0</version>
   <description>
     <p>
       Dual Franka Emika Panda MoveIt Configuration 

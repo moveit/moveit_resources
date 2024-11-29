@@ -2,8 +2,8 @@
 Changelog for package dual_arm_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.1.0 (2024-11-29)
+------------------
 * Remove mimic tags from ros2_control URDF in Panda descriptions (`#200 <https://github.com/ros-planning/moveit_resources/issues/200>`_)
 * Allow nonzero velocity at trajectory end for ros2_controllers (`#198 <https://github.com/ros-planning/moveit_resources/issues/198>`_)
 * Contributors: Sebastian Castro
