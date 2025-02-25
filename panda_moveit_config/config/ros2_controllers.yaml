@@ -2,6 +2,7 @@
 controller_manager:
   ros__parameters:
     update_rate: 100  # Hz
+    use_sim_time: true
 
     panda_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
@@ -15,6 +16,7 @@ controller_manager:
 
 panda_arm_controller:
   ros__parameters:
+    use_sim_time: true
     command_interfaces:
       - position
     state_interfaces:
@@ -32,3 +34,4 @@ panda_arm_controller:
 panda_hand_controller:
   ros__parameters:
     joint: panda_finger_joint1
+    use_sim_time: true
