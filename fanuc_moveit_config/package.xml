@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>moveit_resources_fanuc_moveit_config</name>
-  <version>3.1.0</version>
+  <version>3.1.1</version>
   <description>
     <p>
       MoveIt Resources for testing: Fanuc M-10iA.

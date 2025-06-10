@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.1.1 (2025-06-10)
+------------------
+* Remove dependency to gripper_controllers (`#206 <https://github.com/ros-planning/moveit_resources/issues/206>`_)
+* Contributors: Felix Exner
+
 3.1.0 (2024-11-29)
 ------------------
 * Fix name of execution_duration_monitoring parameter (`#202 <https://github.com/ros-planning/moveit_resources/issues/202>`_)

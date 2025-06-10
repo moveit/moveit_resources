@@ -2,6 +2,9 @@
 Changelog for package dual_arm_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.1.1 (2025-06-10)
+------------------
+
 3.1.0 (2024-11-29)
 ------------------
 * Remove mimic tags from ros2_control URDF in Panda descriptions (`#200 <https://github.com/ros-planning/moveit_resources/issues/200>`_)
