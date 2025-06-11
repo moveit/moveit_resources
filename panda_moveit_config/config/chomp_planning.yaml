@@ -25,7 +25,7 @@ hmc_annealing_factor: 0.99
 use_hamiltonian_monte_carlo: false
 ridge_factor: 0.0
 use_pseudo_inverse: false
-pseudo_inverse_ridge_factor: 1e-4
+pseudo_inverse_ridge_factor: 0.0001
 animate_endeffector: false
 animate_endeffector_segment: "panda_rightfinger"
 joint_update_limit: 0.1
