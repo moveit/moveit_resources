@@ -17,7 +17,7 @@ def generate_launch_description():
             publish_robot_description=True, publish_robot_description_semantic=True
         )
         .planning_pipelines(
-            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"]
+            pipelines=["ompl"]
         )
         .to_moveit_configs()
     )

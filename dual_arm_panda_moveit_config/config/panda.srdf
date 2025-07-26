@@ -53,16 +53,6 @@
     <passive_joint name="right_panda_finger_joint2" />
   </group>
 
-  <group name="left_panda_arm_hand">
-    <group name="left_panda_arm"/>
-    <group name="left_hand"/>
-  </group>
-
-  <group name="right_panda_arm_hand">
-    <group name="right_panda_arm"/>
-    <group name="right_hand"/>
-  </group>
-
   <!--END EFFECTOR: Purpose: Represent information about end effectors.-->
   <end_effector group="left_hand" name="left_hand" parent_group="left_panda_arm" parent_link="left_panda_link8"/>
   <end_effector group="right_hand" name="right_hand" parent_group="right_panda_arm" parent_link="right_panda_link8"/>
