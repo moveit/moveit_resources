@@ -26,17 +26,17 @@ def generate_launch_description():
 
     use_sim_time_arg = DeclareLaunchArgument(
         "use_sim_time",
-        default_value="True",
+        default_value="False",
         description="Whether to use simulated clock.",
     )
 
     launch_gz_arg = DeclareLaunchArgument(
-        "launch_gz", default_value="True", description="Launch an empty gazebo world."
+        "launch_gz", default_value="False", description="Launch an empty gazebo world."
     )
 
     ros2_control_hardware_type = DeclareLaunchArgument(
         "ros2_control_hardware_type",
-        default_value="gz",
+        default_value="mock_components",
         description="ROS 2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac, gz]",
     )
 
