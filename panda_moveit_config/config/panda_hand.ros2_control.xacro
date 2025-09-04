@@ -12,6 +12,9 @@
                     <param name="joint_commands_topic">/isaac_joint_commands</param>
                     <param name="joint_states_topic">/isaac_joint_states</param>
                 </xacro:if>
+                <xacro:if value="${ros2_control_hardware_type == 'gz'}">
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </xacro:if>
             </hardware>
             <joint name="panda_finger_joint1">
                 <command_interface name="position" />

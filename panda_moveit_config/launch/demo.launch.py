@@ -1,7 +1,11 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.substitutions import (
+    LaunchConfiguration,
+    PathJoinSubstitution,
+    PythonExpression,
+)
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -10,22 +14,44 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 
 def generate_launch_description():
-
     # Command-line arguments
     rviz_config_arg = DeclareLaunchArgument(
         "rviz_config",
         default_value="moveit.rviz",
         description="RViz configuration file",
     )
-
     db_arg = DeclareLaunchArgument(
-        "db", default_value="False", description="Database flag"
+        "db", default_value="False", description="Database flag."
+    )
+
+    use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="True",
+        description="Whether to use simulated clock.",
+    )
+
+    launch_gz_arg = DeclareLaunchArgument(
+        "launch_gz", default_value="True", description="Launch an empty gazebo world."
     )
 
     ros2_control_hardware_type = DeclareLaunchArgument(
         "ros2_control_hardware_type",
-        default_value="mock_components",
-        description="ROS 2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
+        default_value="gz",
+        description="ROS 2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac, gz]",
+    )
+
+    gz_sim = ExecuteProcess(
+        cmd=["gz", "sim", "-v", "4", "-r", "empty.sdf"],
+        output="screen",
+        condition=IfCondition(LaunchConfiguration("launch_gz")),
+    )
+
+    sim_clock_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=["/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock"],
+        output="screen",
+        condition=IfCondition(LaunchConfiguration("launch_gz")),
     )
 
     moveit_config = (
@@ -54,7 +80,10 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=[
+            moveit_config.to_dict(),
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
+        ],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
@@ -75,6 +104,7 @@ def generate_launch_description():
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
             moveit_config.joint_limits,
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
         ],
     )
 
@@ -86,22 +116,47 @@ def generate_launch_description():
         output="log",
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "panda_link0"],
     )
-
     # Publish TF
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
         name="robot_state_publisher",
         output="both",
-        parameters=[moveit_config.robot_description],
+        parameters=[
+            moveit_config.robot_description,
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
+        ],
     )
 
+    spawn_robot = Node(
+        package="ros_gz_sim",
+        executable="create",
+        arguments=[
+            "-name",
+            "panda",
+            "-topic",
+            "/robot_description",
+            "-x",
+            "0",
+            "-y",
+            "0",
+            "-z",
+            "0.1",
+        ],
+        output="screen",
+        condition=IfCondition(
+            PythonExpression(
+                ["'", LaunchConfiguration("ros2_control_hardware_type"), "' == 'gz'"]
+            )
+        ),
+    )
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
         get_package_share_directory("moveit_resources_panda_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
+
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -110,6 +165,11 @@ def generate_launch_description():
             ("/controller_manager/robot_description", "/robot_description"),
         ],
         output="screen",
+        condition=IfCondition(
+            PythonExpression(
+                ["'", LaunchConfiguration("ros2_control_hardware_type"), "' != 'gz'"]
+            )
+        ),
     )
 
     joint_state_broadcaster_spawner = Node(
@@ -120,18 +180,21 @@ def generate_launch_description():
             "--controller-manager",
             "/controller_manager",
         ],
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
     panda_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["panda_arm_controller", "-c", "/controller_manager"],
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
     panda_hand_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["panda_hand_controller", "-c", "/controller_manager"],
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
     # Warehouse mongodb server
@@ -150,9 +213,14 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            rviz_config_arg,
+            launch_gz_arg,
+            use_sim_time_arg,
             db_arg,
+            rviz_config_arg,
             ros2_control_hardware_type,
+            gz_sim,
+            sim_clock_bridge,
+            spawn_robot,
             rviz_node,
             static_tf_node,
             robot_state_publisher,
