@@ -1,7 +1,18 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
-    <xacro:arg name="ros2_control_hardware_type" default="mock_components" />
+    <xacro:arg name="ros2_control_hardware_type" default="gz"/>
+    <xacro:property name="ros2_control_hardware_type_property" value="$(arg ros2_control_hardware_type)" />
+    <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+
+    <xacro:if value="${ros2_control_hardware_type_property == 'gz'}">
+        <gazebo>
+            <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so">
+                <parameters>$(find moveit_resources_panda_moveit_config)/config/ros2_controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
+    </xacro:if>
 
     <!-- Import panda urdf file -->
     <xacro:include filename="$(find moveit_resources_panda_description)/urdf/panda.urdf.xacro" />
