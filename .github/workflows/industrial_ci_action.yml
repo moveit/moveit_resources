@@ -22,6 +22,10 @@ jobs:
           # installing Rolling from ros-testing. Non-blocking until all moveit
           # ecosystem deps are released for Resolute. Mirrors moveit/moveit2#3743.
           - {ROS_DISTRO: rolling, OS_CODE_NAME: resolute, ROS_REPO: testing}
+          - {ROS_DISTRO: kilted, ROS_REPO: main}
+          - {ROS_DISTRO: kilted, ROS_REPO: testing}
+          - {ROS_DISTRO: jazzy, ROS_REPO: main}
+          - {ROS_DISTRO: jazzy, ROS_REPO: testing}
           - {ROS_DISTRO: humble, ROS_REPO: main}
           - {ROS_DISTRO: humble, ROS_REPO: testing}
 
