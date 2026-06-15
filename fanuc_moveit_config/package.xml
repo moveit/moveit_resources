@@ -36,7 +36,9 @@
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>controller_manager</exec_depend>
-  <exec_depend>position_controllers</exec_depend>
+  <!-- position_controllers was previously listed here but the fanuc
+       ros2_controllers.yaml does not load any controller from that package;
+       the dep was stale. The package is also gone from Rolling. -->
   <exec_depend>xacro</exec_depend>
   <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment.
        Commented the dependency until this works. -->

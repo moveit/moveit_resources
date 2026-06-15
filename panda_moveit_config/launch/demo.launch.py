@@ -9,6 +9,27 @@ from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
+def distro_specific_path(package_share: str, base_relpath: str) -> str:
+    """Return a distro-overridable share-relative path.
+
+    ``<package_share>/<base_relpath>`` is the default form. A file at
+    ``<package_share>/<stem>.<ROS_DISTRO><ext>`` overrides it when the
+    ``ROS_DISTRO`` env var is set and the override file exists.
+
+    See .github/DISTRO_COMPAT_POLICY.md §1.3 for the broader policy.
+    Long-term this helper should live in ``moveit_configs_utils`` so
+    every launch using ``MoveItConfigsBuilder`` gets the behavior for
+    free.
+    """
+    distro = os.environ.get("ROS_DISTRO", "")
+    if distro:
+        stem, ext = os.path.splitext(base_relpath)
+        override = os.path.join(package_share, f"{stem}.{distro}{ext}")
+        if os.path.isfile(override):
+            return override
+    return os.path.join(package_share, base_relpath)
+
+
 def generate_launch_description():
 
     # Command-line arguments
@@ -96,11 +117,15 @@ def generate_launch_description():
         parameters=[moveit_config.robot_description],
     )
 
-    # ros2_control using FakeSystem as hardware
-    ros2_controllers_path = os.path.join(
+    # ros2_control using FakeSystem as hardware.
+    # The controller-class names in ros2_controllers.yaml differ between distros
+    # (Jazzy+ uses parallel_gripper_action_controller, Humble uses
+    # position_controllers). distro_specific_path() picks the Humble override
+    # config/ros2_controllers.humble.yaml when ROS_DISTRO=humble; falls back to
+    # the default file otherwise. See .github/DISTRO_COMPAT_POLICY.md §1.3.
+    ros2_controllers_path = distro_specific_path(
         get_package_share_directory("moveit_resources_panda_moveit_config"),
-        "config",
-        "ros2_controllers.yaml",
+        "config/ros2_controllers.yaml",
     )
     ros2_control_node = Node(
         package="controller_manager",

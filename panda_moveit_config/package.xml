@@ -32,9 +32,17 @@
   <exec_depend>ros2cli_common_extensions</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
+  <!-- Gripper controller package was renamed in Jazzy:
+       https://github.com/ros-controls/ros2_controllers/pull/1913
+       removed position_controllers in favor of forward_command_controller +
+       parallel_gripper_action_controller (the latter lives in the
+       parallel_gripper_controller package). The position_controllers package
+       still exists on Humble/Iron; parallel_gripper_controller is only on
+       Jazzy and newer. -->
+  <exec_depend condition="$ROS_DISTRO == 'humble' or $ROS_DISTRO == 'iron'">position_controllers</exec_depend>
+  <exec_depend condition="$ROS_DISTRO != 'humble' and $ROS_DISTRO != 'iron'">parallel_gripper_controller</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>controller_manager</exec_depend>
-  <exec_depend>position_controllers</exec_depend>
   <exec_depend>xacro</exec_depend>
   <exec_depend>topic_tools</exec_depend>
   <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment.
