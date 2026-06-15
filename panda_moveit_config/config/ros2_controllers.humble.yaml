@@ -1,0 +1,49 @@
+# Humble override of ros2_controllers.yaml.
+#
+# Humble and Iron ship ros2_controllers <= 6.6 which provides the gripper
+# action controller under position_controllers/GripperActionController. Jazzy
+# and newer dropped that package; the equivalent class moved to
+# parallel_gripper_action_controller/GripperActionController and gained
+# additional parameters.
+#
+# The non-suffixed config/ros2_controllers.yaml carries the Jazzy+ form. This
+# file overrides it on Humble per the convention in
+# .github/DISTRO_COMPAT_POLICY.md §1.3 (in moveit2). The launch file resolves
+# the override via distro_specific_path() based on $ROS_DISTRO.
+#
+# Remove this file when Humble goes EOL (Pattern 1.3 cleanup rule).
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    panda_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    panda_hand_controller:
+      type: position_controllers/GripperActionController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+panda_arm_controller:
+  ros__parameters:
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    allow_nonzero_velocity_at_trajectory_end: true
+
+panda_hand_controller:
+  ros__parameters:
+    joint: panda_finger_joint1
