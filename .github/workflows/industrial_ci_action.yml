@@ -13,18 +13,28 @@ on:
 jobs:
   industrial_ci:
     strategy:
+      fail-fast: false
       matrix:
         env:
-          - {ROS_DISTRO: rolling, ROS_REPO: main}
-          - {ROS_DISTRO: rolling, ROS_REPO: testing}
+          # Rolling moved off Noble to Resolute. No prebuilt rolling-resolute base
+          # image exists yet (https://github.com/osrf/docker_images/issues/878), so
+          # omit DOCKER_IMAGE and let industrial_ci build on ubuntu:resolute,
+          # installing Rolling from ros-testing. Non-blocking until all moveit
+          # ecosystem deps are released for Resolute. Mirrors moveit/moveit2#3743.
+          - {ROS_DISTRO: rolling, OS_CODE_NAME: resolute, ROS_REPO: testing}
+          - {ROS_DISTRO: kilted, ROS_REPO: main}
+          - {ROS_DISTRO: kilted, ROS_REPO: testing}
+          - {ROS_DISTRO: jazzy, ROS_REPO: main}
+          - {ROS_DISTRO: jazzy, ROS_REPO: testing}
           - {ROS_DISTRO: humble, ROS_REPO: main}
           - {ROS_DISTRO: humble, ROS_REPO: testing}
 
     env:
       CCACHE_DIR: ~/.ccache
 
-    name: ${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}
+    name: ${{ matrix.env.ROS_DISTRO }}${{ matrix.env.OS_CODE_NAME && format('-{0}', matrix.env.OS_CODE_NAME) || '' }}-${{ matrix.env.ROS_REPO }}${{ matrix.env.OS_CODE_NAME == 'resolute' && ' (experimental)' || '' }}
     runs-on: ubuntu-22.04
+    continue-on-error: ${{ matrix.env.OS_CODE_NAME == 'resolute' }}
     steps:
       - uses: actions/checkout@v4
       - uses: rhaschke/cache@main
