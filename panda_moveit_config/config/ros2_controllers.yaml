@@ -35,13 +35,12 @@ panda_hand_controller:
   ros__parameters:
     joint: panda_finger_joint1
 
-    # Enable effort control (replacement for use_effort_interface)
-    max_effort_interface: "robotiq_85_left_knuckle_joint/effort"
-    max_effort: 50.0   # TODO tune
-
-    # Enable velocity/speed control (replacement for use_speed_interface)
-    max_velocity_interface: "robotiq_85_left_knuckle_joint/velocity"
-    max_velocity: 0.5    # TODO tune
+    # parallel_gripper_action_controller drives panda_finger_joint1 via its
+    # position command interface; panda_hand.ros2_control.xacro does not expose
+    # effort or velocity command interfaces on the finger joint, so we leave
+    # max_effort_interface / max_velocity_interface unset. The controller falls
+    # back to pure position control, which is what panda's mock_components
+    # hardware supports.
 
     # Optional (recommended)
     state_interfaces: ["position", "velocity"]
