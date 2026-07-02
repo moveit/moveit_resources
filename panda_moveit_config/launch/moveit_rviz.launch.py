@@ -1,13 +1,13 @@
 import os
 from sys import prefix
+
 import yaml
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
-from launch.conditions import IfCondition, UnlessCondition
-from launch_ros.actions import Node
-from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.conditions import IfCondition, UnlessCondition
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
 
 
 def load_file(package_name, file_path):
@@ -35,13 +35,9 @@ def load_yaml(package_name, file_path):
 def generate_launch_description():
 
     # Command-line arguments
-    tutorial_arg = DeclareLaunchArgument(
-        "rviz_tutorial", default_value="False", description="Tutorial flag"
-    )
+    tutorial_arg = DeclareLaunchArgument("rviz_tutorial", default_value="False", description="Tutorial flag")
 
-    kinematics_yaml = load_yaml(
-        "moveit_resources_panda_moveit_config", "config/kinematics.yaml"
-    )
+    kinematics_yaml = load_yaml("moveit_resources_panda_moveit_config", "config/kinematics.yaml")
 
     # RViz
     tutorial_mode = LaunchConfiguration("rviz_tutorial")
