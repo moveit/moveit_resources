@@ -2,6 +2,12 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.2.0 (2026-07-13)
+------------------
+* Replace old gripper_controllers package with parallel_gripper_action_controller (`#211 <https://github.com/ros-planning/moveit_resources/issues/211>`_)
+* Fix chomp parameter from string to double (`#208 <https://github.com/ros-planning/moveit_resources/issues/208>`_)
+* Contributors: Marq Rasmussen, Nathan Brooks
+
 3.1.1 (2025-06-10)
 ------------------
 
