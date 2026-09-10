@@ -58,7 +58,7 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
+        arguments=["--frame-id", "world", "--child-frame-id", "base_link"],
     )
 
     # Publish TF
@@ -93,6 +93,8 @@ def generate_launch_description():
             "joint_state_broadcaster",
             "--controller-manager",
             "/controller_manager",
+            "--param-file",
+            ros2_controllers_path,
         ],
     )
 
@@ -103,6 +105,8 @@ def generate_launch_description():
             "fanuc_controller",
             "--controller-manager",
             "/controller_manager",
+            "--param-file",
+            ros2_controllers_path,
         ],
     )
 
