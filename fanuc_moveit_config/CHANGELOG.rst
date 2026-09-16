@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_fanuc_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix controller spawner and static TF arguments in demo.launch.py (`#221 <https://github.com/moveit/moveit_resources/issues/221>`_)
+* Contributors: Nathan Brooks
+
 3.2.0 (2026-07-13)
 ------------------
 * Replace old gripper_controllers package with parallel_gripper_action_controller (`#211 <https://github.com/ros-planning/moveit_resources/issues/211>`_)

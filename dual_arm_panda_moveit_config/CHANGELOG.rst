@@ -2,6 +2,9 @@
 Changelog for package dual_arm_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.2.0 (2026-07-13)
 ------------------
 

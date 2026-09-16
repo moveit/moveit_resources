@@ -2,6 +2,11 @@
 Changelog for package moveit_resources_panda_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix controller spawner and static TF arguments in demo.launch.py (`#221 <https://github.com/moveit/moveit_resources/issues/221>`_)
+* Contributors: Nathan Brooks
+
 3.2.0 (2026-07-13)
 ------------------
 * Drop robotiq interface refs from panda_hand_controller (`#215 <https://github.com/ros-planning/moveit_resources/issues/215>`_)
