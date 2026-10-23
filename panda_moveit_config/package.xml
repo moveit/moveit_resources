@@ -29,6 +29,7 @@
   <exec_depend>moveit_planners_ompl</exec_depend>
   <exec_depend>moveit_ros_visualization</exec_depend>
   -->
+  <exec_depend>moveit2_tutorials</exec_depend>
   <exec_depend>ros2cli_common_extensions</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
